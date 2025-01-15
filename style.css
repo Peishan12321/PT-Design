@@ -9,7 +9,7 @@ body {
     width: 100vw;
     top: 0;
     left: 0;
-    background-color: rgba(69, 146, 146, 100);
+    background-color: rgba(69, 146, 146, 1);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
