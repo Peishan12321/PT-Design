@@ -33,6 +33,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    gap: 1 rm
   }
   
   .nav__menu ul li {
