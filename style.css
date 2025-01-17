@@ -52,17 +52,17 @@ body {
 }
 
 .nav__hamburger {
-    width: 1.875rem;
-    height: 1.313rem;
-    display: none;
+    width: 2.5rem; /* Hamburger width */
+    height: 2rem; /* Hamburger height */
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: transparent; /* No background color */
-    border: none; /* Ensure no border is applied */
-    z-index: 1000;
+    background-color: transparent; /* No background color for the hamburger icon */
+    border: none; /* Ensure no border */
+    z-index: 1000; 
 }
 
 .nav__hamburger__line {
@@ -90,21 +90,18 @@ body {
         position: absolute;
         display: flex;
         align-items: center;
-        background-color: transparent;
-        top: -100%; /* Start offscreen */
+        background-color: rgba(255, 255, 255, 0.8); /* Menu background */
+        top: -10rem; /* Initially hidden */
         width: 100%;
         visibility: hidden; /* Ensures it’s not interactive when off-screen */
-        transition: top 0.4s ease-in-out;
+        transition: all ease-in-out 0.4s;
     }
 
     .nav__menu.active {
         top: 0; /* Slides into view */
-        visibility: visible; /* Make it interactive */
-    }
-
-    .nav {
-        flex-direction: column;
-        align-items: flex-start;
+        visibility: visible;
+        transition: top 0.3s ease; /* Make it interactive */
+    
     }
 
     .nav__menu ul {
