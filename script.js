@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const hamburger = document.querySelector(".nav__hamburger");
 const linksContainer = document.querySelector(".nav__menu");
 const links = document.querySelectorAll(".nav__menu__link");
@@ -21,4 +22,5 @@ links.forEach((link) => {
         hamburger.classList.remove("active");
     }
   });
+ });
 });
