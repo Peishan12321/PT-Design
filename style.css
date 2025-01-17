@@ -92,8 +92,8 @@ body {
     
     }
     .nav__menu.active {
-        top: 3.2rem;
-        visibility: visible; /* Makes it interactive when active */
+        top: 0; /* Or whatever effect you want when the menu is active */
+        transition: top 0.3s ease;; /* Makes it interactive when active */
       }
     
       .nav {
