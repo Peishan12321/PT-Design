@@ -9,19 +9,16 @@ hamburger.addEventListener("click", () => {
 
 window.addEventListener("resize", () => {
   if (window.matchMedia("(max-width: 550px)").matches) {
-    closeMenu();
+    linksContainer.classList.remove("active");
+    hamburger.classList.remove("active");
   }
 });
 
-if (window.matchMedia("(max-witdh: 550px").matches) {
-  closeMenu();
-}
-
-function closeMenu() {
-  links.forEach((link) => {
+links.forEach((link) => {
     link.addEventListener("click", () => {
-      linksContainer.classList.remove("active");
-      hamburger.classList.remove("active");
-    });
+      if (window.matchMedia("(max-width: 550px)").matches) {
+        linksContainer.classList.remove("active");
+        hamburger.classList.remove("active");
+    }
   });
-}
+});

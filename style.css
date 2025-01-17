@@ -18,22 +18,23 @@ body {
   
   .nav {
     height: 3.2rem;
-    display: flex-end;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
     color: #fff;
   }
   
   .nav__logo {
     font-size: 1.5rem;
-    margin: auto 1rem;
+
   }
   
   .nav__menu ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1 rm
+    gap: 1 rem
   }
   
   .nav__menu ul li {
@@ -60,6 +61,9 @@ body {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
   
   .nav__hamburger__line {
@@ -83,38 +87,43 @@ body {
       background-color: rgba(255, 255, 255, 0.2);
       top: -10rem;
       width: 100%;
+      visibility: hidden; /* Ensures it’s not interactive when off-screen */
       transition: all ease-in-out 0.4s;
-    }
-    .nav {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .nav__menu ul {
-      flex-direction: column;
-      width: 100%;
-      padding: 3rem 0 0.6rem;
-    }
-    .nav__menu ul li {
-      text-align: center;
-    }
-    .nav__menu ul li a {
-      padding: 0.5rem;
-    }
-    .nav__menu {
-      z-index: -1;
+    
     }
     .nav__menu.active {
-      top: 0;
+        top: 3.2rem;
+        visibility: visible; /* Makes it interactive when active */
+      }
+    
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .nav__menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+      }
+    
+      .nav__menu ul li {
+        text-align: center;
+      }
+    
+      .nav__menu ul li a {
+        padding: 0.5rem;
+      }
+    
+      .nav__hamburger.active :nth-child(1) {
+        transform: rotate(45deg) translate(0.45rem, 0.1875rem);
+      }
+    
+      .nav__hamburger.active :nth-child(2) {
+        opacity: 0;
+      }
+    
+      .nav__hamburger.active :nth-child(3) {
+        transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
+      }
     }
-    .nav__hamburger.active :nth-child(1) {
-      transform: rotate(45deg) translate(0.45rem, 0.1875rem);
-    }
-  
-    .nav__hamburger.active :nth-child(2) {
-      opacity: 0;
-    }
-  
-    .nav__hamburger.active :nth-child(3) {
-      transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
-    }
-  }
