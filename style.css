@@ -60,6 +60,9 @@ body {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    background-color: transparent; /* No background color */
+    border: none; /* Ensure no border is applied */
+    z-index: 1000;
 }
 
 .nav__hamburger__line {
