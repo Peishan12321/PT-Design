@@ -66,7 +66,7 @@ body {
 }
 
 .nav__hamburger__line {
-    height: 0.188rem;
+    height: 0.25rem;
     width: 100%;
     background-color: #fff;
     border-radius: 0.625rem;
@@ -90,7 +90,7 @@ body {
         position: absolute;
         display: flex;
         align-items: center;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: transparent;
         top: -100%; /* Start offscreen */
         width: 100%;
         visibility: hidden; /* Ensures it’s not interactive when off-screen */
