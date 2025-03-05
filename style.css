@@ -92,7 +92,7 @@ body{
         height: 0.5em;
         width: 0.2em;
         background-color: #fff;
-        border-radius: 50%;
+        border-radius: 30%;
         animation: move-down 2s infinite;
      }
      @keyframes move-down{
