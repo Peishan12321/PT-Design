@@ -70,3 +70,11 @@ body{
         width: 450px;
         margin: 10px 10%;
      }
+     
+     a#scroll-bnt{
+        position: absolute;
+        height: 10em;
+        width: 6.25em;
+        border: 0.5em solid #fff;
+        margin: auto;
+     }
