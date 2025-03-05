@@ -79,7 +79,7 @@ body{
         margin: auto;
         left: 0;
         right: 0;
-        bottom: 8.25em;
+        bottom: 7.25em;
         border-radius: 3em;
      }
      a#scroll-btn:before {
@@ -89,7 +89,7 @@ body{
         left: 0;
         right: 0;
         top: 0.3em;
-        height: 0.3em;
+        height: 0.6em;
         width: 0.3em;
         background-color: #fff;
         border-radius: 50%;
