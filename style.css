@@ -49,7 +49,7 @@ body{
         background:#ED1C24;
         position: absolute;
         left: 0;
-        bottom: -36px;
+        bottom: -31px;
         transition: 0.5s;
     }
      nav ul li a:hover::after{
