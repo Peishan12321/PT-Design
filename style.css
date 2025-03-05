@@ -92,5 +92,13 @@ body{
         width: 0.6em;
         background-color: #fff;
         border-radius: 50%;
-
+        animation: move-down 2s infinite;
+     }
+     @keyframes move-down{
+        80% {
+            opacity: 0.5;
+        }
+        100% {
+            transform: translateY(5.3em);
+        }
      }
