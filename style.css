@@ -101,5 +101,6 @@ body{
         }
         100% {
             transform: translateY(2.8em);
+            opacity: 0;
         }
      }
