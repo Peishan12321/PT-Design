@@ -100,7 +100,7 @@ body{
             opacity: 0.5;
         }
         100% {
-            transform: translateY(2.8em);
+            transform: translateY(1.4em);
             opacity: 0;
         }
      }
