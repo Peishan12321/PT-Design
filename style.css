@@ -53,5 +53,5 @@ body{
         transition: 0.5s;
     }
      nav ul li a:hover::after{
-        width:100;
+        width:100%;
      }
