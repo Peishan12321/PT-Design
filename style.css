@@ -66,9 +66,6 @@ body{
         font-size: 32px;
         text-align: center;
      }
-     .header-image {
-        width: 125px; /* Adjust the size */
-        height: auto; /* Maintain aspect ratio */
-        display: block; /* Ensures proper spacing */
-        margin: 0 auto 20px; /* Center it and add space below */ 
+     .shan {
+        width: 140px 
      }
