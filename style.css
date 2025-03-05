@@ -82,7 +82,15 @@ body{
         bottom: 6.25em;
         border-radius: 3em;
      }
-     a#scroll-btn
+     a#scroll-btn:before {
+        position: absolute;
+        margin:auto;
+        left: 0;
+        right: 0;
+        height: 1.2em;
+        width: 1.2em;
+        background-color: #fff;
+
 
 
 
