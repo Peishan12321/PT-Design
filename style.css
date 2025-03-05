@@ -71,7 +71,7 @@ body{
         margin: 10px 10%;
      }
      
-     a#scroll-bnt{
+     a#scroll-btn{
         position: absolute;
         height: 10em;
         width: 6.25em;
@@ -84,8 +84,8 @@ body{
      }
      a#scroll-btn:before {
         position: absolute;
-        content:"";
-        margin:auto;
+        content: "";
+        margin: auto;
         left: 0;
         right: 0;
         height: 1.2em;
