@@ -73,9 +73,9 @@ body{
      
      a#scroll-btn{
         position: absolute;
-        height: 10em;
-        width: 6.25em;
-        border: 0.5em solid #fff;
+        height: 5em;
+        width: 3em;
+        border: 0.25em solid #fff;
         margin: auto;
         left: 0;
         right: 0;
