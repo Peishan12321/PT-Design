@@ -84,6 +84,7 @@ body{
      }
      a#scroll-btn:before {
         position: absolute;
+        content:"";
         margin:auto;
         left: 0;
         right: 0;
