@@ -113,16 +113,15 @@ body{
 
      }
      .work-list{
-        display: grid;
-        place-items: center; /* Centers items both horizontally and vertically */
-        margin-top: 30px;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
 
      }
-     .work {
-        width: 90%; /* Adjust this percentage to make it wider */
-        max-width: 1200px; /* Prevents it from becoming too large on big screens */
-        height: auto;
-        display: block;
-        margin: 20px auto; /* Centers the element */
+     .work{
+        width: 90;
      }
+     
      
