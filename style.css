@@ -107,7 +107,8 @@ body{
      .sub-heading{
         text-align: center;
         font-size:24px;
-        color:#fff
-        
+        margin-top: 10%;
+        opacity: 0;
+
 
      }
