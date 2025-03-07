@@ -119,9 +119,8 @@ body{
 
      }
      .work {
-        width: 100%; /* Adjust this percentage to make it wider */
-        max-width: 2000px; /* Prevents it from becoming too large on big screens */
-        height: auto;
+        width: 1420px;
+        height: 2840px;
         display: block;
-        margin: 20px auto; /* Centers the element */
+        margin: 20px auto; /* Centers it horizontally */
       }
