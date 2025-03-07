@@ -118,4 +118,11 @@ body{
         margin-top: 30px;
 
      }
+     .work {
+        width: 90%; /* Adjust this percentage to make it wider */
+        max-width: 1200px; /* Prevents it from becoming too large on big screens */
+        height: auto;
+        display: block;
+        margin: 20px auto; /* Centers the element */
+     }
      
