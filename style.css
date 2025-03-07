@@ -104,7 +104,10 @@ body{
             opacity: 0;
         }
      }
-     #portfolio{
-        padding: auto;
+     .sub-heading{
+        text-align: center;
+        font-size:24px;
+        color:#fff
         
+
      }
