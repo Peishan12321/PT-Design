@@ -119,8 +119,9 @@ body{
 
      }
      .work {
-        width: 1420px;
-        height: 2840px;
+        width: 100%; /* Uses full width on small screens */
+        max-width: 1420px; /* Limits width to 1420px on larger screens */
+        height: auto; /* Adjusts height automatically */
         display: block;
-        margin: 20px auto; /* Centers it horizontally */
+        margin: 20px auto;
       }
