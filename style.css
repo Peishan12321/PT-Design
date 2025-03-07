@@ -114,6 +114,7 @@ body{
      }
      .work-list{
         margin-top: 30px;
+        align-items: center;
 
      }
      .work{
@@ -121,7 +122,6 @@ body{
         height: auto;
         display: block;
         margin-top: 20px;
-        align-items: center;
 
 
      }
