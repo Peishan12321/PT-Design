@@ -2,6 +2,13 @@
     margin:0;
     padding:0;
     font-family: 'Gloock', sans-serif;
+    body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      h1, h2, h3 {
+        font-family: 'Gloock', serif;
+      }
     box-sizing: border-box;
 }
 body{
@@ -10,7 +17,7 @@ body{
 }
 #header{
     width: 100%;
-    height: 1000vh;
+    height: 100vh;
     background-image: url(Image/bg.png);
     background-size: cover;
     background-position: center;
