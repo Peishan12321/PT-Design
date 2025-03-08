@@ -6,6 +6,7 @@
 }
 body{
     background: #080808 ;
+    font-family: 'Inter', sans-serif;
     color: #ffff ;
 }
 #header{
@@ -57,7 +58,6 @@ body{
      }
      .header-text{
         margin-top: 10%;
-        font-family: 'Inter', sans-serif;
         font-size: 18px;
         text-align: center;
 
@@ -65,7 +65,6 @@ body{
      .header-text h1{
         margin-top: 10px;
         font-size: 67px;
-        font-family: 'Gloock', serif;
         text-align: center;
      }
      .shan {
