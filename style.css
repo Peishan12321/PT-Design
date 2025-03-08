@@ -126,3 +126,16 @@ body{
         top: 0;
         border-radius: 40px;
      }
+     .header-text2 h1{
+        margin-top: 10px;
+        font-size: 67px;
+        font-family: 'Gloock', serif;
+        letter-spacing: 2px;
+        text-align: left;
+     }
+     .header-text2 p{
+        margin-top: 5px;
+        font-size: 18px;
+        font-family: 'inter', serif;
+        text-align: left;
+     }
