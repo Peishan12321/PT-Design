@@ -112,18 +112,5 @@ body{
         margin-top: 450px;
         opacity: 100%;
 
-
      }
-     .work-list{
-        display: grid;
-        place-items: center; /* Centers items both horizontally and vertically */
-        margin-top: 30px;
-
-     }
-     .work {
-        width: 1420px;
-        height: 2840px;
-        object-fit: cover; /* Ensures it fills the space but crops if needed */
-        display: block;
-        margin: 20px auto;
-      }
+     
