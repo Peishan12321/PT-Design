@@ -153,8 +153,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 10px auto;
-        top: 112px;
+        margin-top: 112px;
         border-radius: 40px;
 
      }
