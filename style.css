@@ -147,6 +147,9 @@ body{
       height:100%;
 
       display: flex;
+      font-size: 67px;
+      font-family: 'Gloock', serif;
+      letter-spacing: 2px;
       justify-content: center;
       align-items: center;
       
