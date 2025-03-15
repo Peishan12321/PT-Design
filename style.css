@@ -259,7 +259,7 @@ body{
       display: flex;
       justify-content: space-between; /* Space out the two texts */
       align-items: center;
-      padding: 50px;
+      padding: 0px 50px 0px 50px;
       font-size: 14px;
       
      }
