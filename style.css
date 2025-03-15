@@ -208,7 +208,11 @@ body{
 
     }
     
-
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
     th, td {
         border-bottom: 1px solid #fff;
         height: 94px;
@@ -220,10 +224,8 @@ body{
     
     th {
         background-color: #000000;
-        
     }
     
     td {
-        background-color: #000000;
-       
+        background-color: #222;
     }
