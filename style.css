@@ -190,7 +190,11 @@ body{
         font-weight: 100;
         text-align: left;
      }
-     
+     table{
+      width: 100%;
+      border-collapse: collapse;
+
+     }
      .footer{
         width: 80vw;
         height: 40vh;
