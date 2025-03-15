@@ -162,13 +162,10 @@ body{
    .content-wrapper{
       display:grid;
       grid-template-columns: 2fr 1fr;
-      align-items: start;
+      margin-top: 10px;
+      align-items: right;
 
-   }
-   .table-section{
-      background-color:#fff;
-      padding:15px;
-      box-shadow: 0 4px 10pc rgba(0,0,0, 0.1);
+   
    }
    
      .header-text2 h1{
