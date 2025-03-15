@@ -202,6 +202,12 @@ body{
      caption,th {
        text-align: left;
      }
+     caption{
+       font-size: 20px;
+       font-family: 'inter';
+       font-weight: light;
+
+     }
      .footer{
         width: 80vw;
         height: 40vh;
