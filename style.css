@@ -154,6 +154,24 @@ body{
       align-items: center;
       
    }
+   .header-text2{
+      padding: 20px;
+      background: colour #f5f5f5;
+      border-radius: 12px;
+   }
+   .content-wrapper{
+      display:grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      align-items: start;
+
+   }
+   .table-section{
+      background-color:#fff;
+      padding:15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10pc rgba(0,0,0, 0.1);
+   }
    
      .header-text2 h1{
         margin-top: 10px;
