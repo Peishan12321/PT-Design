@@ -114,8 +114,8 @@ body{
 
      }
      .card {
-        width: 80vw;
-        height: 50vh;
+        width: 1344px;
+        height: 495px;
         background: #fff;
         color:#fff;
         display: flex;
