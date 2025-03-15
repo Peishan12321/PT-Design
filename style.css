@@ -121,9 +121,8 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 45px;
         position: sticky;
-        top: 0;
+        top: 45 px;
         border-radius: 40px;
      }
      .card img {
