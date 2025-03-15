@@ -154,6 +154,14 @@ body{
       align-items: center;
       
    }
+   .content-grid{
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 100px 100px;
+
+
+   }
+
    .header-text2{
       padding: 20px;
       background: colour #f5f5f5;
