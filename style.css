@@ -253,11 +253,14 @@ body{
      }
      .footer-content2{
       display: flex;
+      justify-content: space-between; /* Space out the two texts */
       align-items: center;
-      justify-content: space-between;
-      flex-wrap:wrap;
-      margin-top: 85px;
-      text-align: left;
+      padding: 10px;
+      font-size: 14px;
+      color: #fff;
+     }
+     copyright {
+      font-weight: 400;
      }
      
      
