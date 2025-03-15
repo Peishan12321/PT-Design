@@ -154,6 +154,10 @@ body{
       align-items: center;
       
    }
+   .content-wrapper {
+      columns: 2 300px; /* Two columns, minimum width of 300px */
+      column-gap: 20px; /* Gap between columns */
+  }
      .header-text2 h1{
         margin-top: 10px;
         font-size: 67px;
