@@ -216,7 +216,7 @@ body{
     th, td {
         border-bottom: 1px solid #fff;
         height: 94px;
-        position: right;
+        position: absolute;
         padding: 10px;
         text-align: right;
         color: #fff;
