@@ -157,7 +157,7 @@ body{
    .content-grid{
       display: grid;
       gap: 1.5rem;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 1fr 1fr;
 
 
    }
@@ -216,7 +216,8 @@ body{
     th, td {
         border-bottom: 1px solid #fff;
         height: 94px;
-        position: right;
+        display: flex;
+        justify-content: flex-end;
         padding: 10px;
         text-align: right;
         color: #fff;
