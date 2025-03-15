@@ -202,9 +202,13 @@ body{
      th{
       text-align: left;
       margin-top: 50px;
+      font-family: 'inter';
+      font-size: 20px;
      }
      td{
       text-align: right;
+      font-family: 'inter';
+      font-size: 20px;
      }
      .footer{
         width: 80vw;
