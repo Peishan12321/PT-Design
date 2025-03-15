@@ -220,7 +220,7 @@ body{
       border-bottom: 1px solid #fff;
      }
      .footer-container{
-      flex-direction: column;
+       flex-direction: column;
         width: 80vw;
         height: 60vh;
         background: #fff;
@@ -252,6 +252,8 @@ body{
       margin: 10px 20px;
      }
      .footer-content2{
+      width: 80vw;
+      height: 60vh;
       display: flex;
       justify-content: space-between; /* Space out the two texts */
       align-items: center;
