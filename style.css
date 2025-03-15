@@ -239,12 +239,7 @@ body{
       justify-content: center;
       align-items: center;
      }
-     .footer-container{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap:wrap;
-     }
+     
      
 
    
