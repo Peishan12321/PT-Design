@@ -198,16 +198,21 @@ body{
      }
      caption{
       text-align: left;
+      font-size: 18px;
+        font-family: 'inter', serif;
+
      }
      th{
       text-align: left;
       margin-top: 50px;
       font-family: 'inter';
+      font-weight: 400;
       font-size: 20px;
      }
      td{
       text-align: right;
       font-family: 'inter';
+      font-weight: 400;
       font-size: 20px;
      }
      .footer{
