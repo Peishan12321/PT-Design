@@ -206,30 +206,4 @@ body{
         flex: 1;
         max-width: 600px;
 
-    }
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    
-    th, td {
-        border-bottom: 1px solid #fff;
-        height: 94px;
-        display: right;
-        padding: 5px;
-        text-align: right;
-        color: #fff;
-    }
-    
-    th {
-        background-color: #000000;
-        font-size: 18px;
-        font-family: 'inter', serif;
-    }
-    
-    td {
-        background-color: #222;
-        font-size: 18px;
-        font-family: 'inter', serif;
-    }
+     }
