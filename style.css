@@ -161,6 +161,7 @@ body{
    }
    .content-wrapper{
       display:grid;
+      position:absolute;
       grid-template-columns: 2fr 1fr;
       margin-top: 10px;
       align-items: right;
