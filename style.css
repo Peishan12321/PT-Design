@@ -203,6 +203,9 @@ body{
       text-align: left;
       margin-top: 50px;
      }
+     td{
+      text-align: right;
+     }
      .footer{
         width: 80vw;
         height: 40vh;
