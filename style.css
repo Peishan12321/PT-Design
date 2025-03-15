@@ -245,7 +245,7 @@ body{
       justify-content: space-between;
       flex-wrap:wrap;
      }
-     ul li{
+   ul li{
       display: inline-block;
       list-style: none;
       margin: 10px 20px;
