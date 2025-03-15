@@ -188,14 +188,15 @@ body{
      .text-section {
         flex: 1;
         max-width: 600px;
-        display: flex;
-        align-items: right;
-        justify-content: right;
-    }
+     }
     
     .table-section {
         flex: 1;
         max-width: 400px;
+        display: flex;
+        align-items: right;
+        justify-content: right;
+   
 
     }
     
