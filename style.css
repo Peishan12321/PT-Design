@@ -233,6 +233,7 @@ body{
 
      }
      .footer-content {
+      margin-top: auto;
       display: flex;
       font-size: 63px;
       font-family: 'Gloock', serif;
