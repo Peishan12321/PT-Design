@@ -164,7 +164,7 @@ body{
       grid-template-columns: 2fr 1fr;
       gap: 20px;
       align-items: start; /* Align to the top */
-      margin-top: 10px;
+      margin-top: 112px;
       height: auto; 
       max-width: 600px;
    
