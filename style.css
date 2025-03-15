@@ -191,7 +191,12 @@ body{
         text-align: left;
      }
      table {
+       border-collapse: collapse;
 
+     }
+     th,td{
+      padding: 1rem;
+      
      }
      .footer{
         width: 80vw;
