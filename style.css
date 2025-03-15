@@ -220,6 +220,7 @@ body{
         padding: 10px;
         text-align: right;
         color: #fff;
+        justify-content: flex-end;
     }
     
     th {
