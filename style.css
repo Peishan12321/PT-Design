@@ -216,15 +216,7 @@ body{
     .table-section td:nth-child(2) {
       text-align: right;
   }
-
-    th, td {
-        border-bottom: 1px solid #fff;
-        height: 94px;
-        position: right;
-        padding: 10px;
-        text-align: right;
-        color: #fff;
-    }
+    
     
     th {
         background-color: #000000;
