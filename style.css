@@ -193,10 +193,6 @@ body{
     .table-section {
         flex: 1;
         max-width: 400px;
-        display: flex;
-        align-items: right;
-        justify-content: right;
-   
 
     }
     
@@ -207,8 +203,9 @@ body{
     
     th, td {
         border: 1px solid #fff;
+        position: absolute;
         padding: 10px;
-        text-align: left;
+        text-align: right;
         color: #fff;
     }
     
