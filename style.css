@@ -224,8 +224,10 @@ body{
     
     th {
         background-color: #000000;
+        text-align: left;
     }
     
     td {
         background-color: #000000;
+        text-align: right;
     }
