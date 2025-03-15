@@ -167,8 +167,6 @@ body{
       background: colour #f5f5f5;
       border-radius: 12px;
    
-
-   
    }
    
      .header-text2 h1{
@@ -192,25 +190,7 @@ body{
         font-weight: 100;
         text-align: left;
      }
-     table {
-       display: grid;
-       width: 100%;
-       border-collapse: collapse;
-
-     }
-     caption,th{
-      padding: 1rem;
-
-     }
-     caption,th {
-       text-align: left;
-     }
-     caption{
-       font-size: 20px;
-       font-family: 'inter';
-       font-weight: lighter;
-
-     }
+     
      .footer{
         width: 80vw;
         height: 40vh;
