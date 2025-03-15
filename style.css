@@ -195,6 +195,9 @@ body{
       border-collapse: collapse;
 
      }
+     caption{
+      text-align: left;
+     }
      .footer{
         width: 80vw;
         height: 40vh;
