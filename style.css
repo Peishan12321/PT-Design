@@ -186,7 +186,7 @@ body{
         text-align: left;
      }
      .header-text2 p.bio {
-        margin-top: 30px;
+        margin-top: 5px;
         font-size: 18px;
         font-family: 'inter', serif;
         font-weight: 100;
@@ -209,10 +209,6 @@ body{
        font-family: 'inter';
        font-weight: lighter;
 
-     }
-     .table-container{
-      max-width:100%;
-      overflow-x: auto;
      }
      .footer{
         width: 80vw;
