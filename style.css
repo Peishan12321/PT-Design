@@ -210,6 +210,10 @@ body{
        font-weight: lighter;
 
      }
+     .table-container{
+      max-width:100%;
+      overflow-x: auto;
+     }
      .footer{
         width: 80vw;
         height: 40vh;
