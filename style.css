@@ -222,7 +222,7 @@ body{
      .footer-container{
        flex-direction: column;
         width: 80vw;
-        height: 60vh;
+        height: 40vh;
         background: #fff;
         color:#080808;
         display: flex;
