@@ -182,13 +182,14 @@ body{
         margin-top: 10px;
         font-size: 18px;
         font-family: 'inter', serif;
+        font-weight: 100;
         text-align: left;
      }
      .header-text2 p.bio {
         margin-top: 38px;
         font-size: 18px;
         font-family: 'inter', serif;
-        font-weight: normal;
+        font-weight: 400;
         text-align: left;
      }
      table {
