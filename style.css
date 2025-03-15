@@ -200,6 +200,7 @@ body{
      }
      th{
       text-align: left;
+      padding: 10px;
      }
      .footer{
         width: 80vw;
