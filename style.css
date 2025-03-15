@@ -121,7 +121,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: auto;
+        margin: 45px;
         position: sticky;
         top: 0;
         border-radius: 40px;
