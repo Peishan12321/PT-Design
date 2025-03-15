@@ -198,6 +198,9 @@ body{
      caption{
       text-align: left;
      }
+     th{
+      text-align: left;
+     }
      .footer{
         width: 80vw;
         height: 40vh;
