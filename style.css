@@ -191,13 +191,13 @@ body{
         text-align: left;
      }
      table{
-      margin-top: 100px;
       width: 100%;
       height: 100%;
       border-collapse: collapse;
 
      }
      caption{
+      margin-top: 100px;
       text-align: left;
       font-size: 18px;
         font-family: 'inter', serif;
