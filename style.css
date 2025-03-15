@@ -200,7 +200,7 @@ body{
      }
      th{
       text-align: left;
-      margin-top: 10px;
+      top: 10px;
      }
      .footer{
         width: 80vw;
