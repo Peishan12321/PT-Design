@@ -188,11 +188,13 @@ body{
      .text-section {
         flex: 1;
         max-width: 600px;
+        align-items: right;
     }
     
     .table-section {
         flex: 1;
         max-width: 400px;
+
     }
     
     table {
