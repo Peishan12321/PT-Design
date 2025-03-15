@@ -261,8 +261,12 @@ body{
      }
      .footer-content2 .copyright {
       font-weight: 400;
+      text-align: left;
      }
-     
+     .footer-content2 .creator {
+      font-weight: 400;
+      text-align: right;
+     }
      
 
    
