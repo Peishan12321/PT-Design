@@ -252,8 +252,8 @@ body{
       margin: 10px 20px;
      }
      .footer-content2{
-      width: 80vw;
-      height: 60vh;
+      width: 1198px;
+      height: 24px;
       display: flex;
       justify-content: space-between; /* Space out the two texts */
       align-items: center;
