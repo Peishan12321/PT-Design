@@ -230,6 +230,14 @@ body{
         border-radius: 40px;
 
      }
+     .footer-content {
+      display: flex;
+      font-size: 63px;
+      font-family: 'Gloock', serif;
+      letter-spacing: 3px;
+      justify-content: center;
+      align-items: center;
+     }
      
 
    
