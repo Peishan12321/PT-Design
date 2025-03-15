@@ -203,7 +203,7 @@ body{
     
     th, td {
         border: 1px solid #fff;
-        position: absolute;
+        position: right;
         padding: 10px;
         text-align: right;
         color: #fff;
