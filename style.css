@@ -220,6 +220,7 @@ body{
       border-bottom: 1px solid #fff;
      }
      .footer-container{
+      flex-direction: column;
         width: 80vw;
         height: 40vh;
         background: #fff;
@@ -241,8 +242,7 @@ body{
      }
      .footer-link {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      
       align-items: center;
       justify-content: space-between;
       flex-wrap:wrap;
