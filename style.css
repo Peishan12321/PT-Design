@@ -208,14 +208,14 @@ body{
       font-family: 'inter';
       font-weight: 400;
       font-size: 20px;
-      border-bottom: 1px #fff;
+      border-bottom: 1px solid #fff;
      }
      td{
       text-align: right;
       font-family: 'inter';
       font-weight: 400;
       font-size: 20px;
-      border-bottom: 1px #fff;
+      border-bottom: 1px solid #fff;
      }
      .footer{
         width: 80vw;
