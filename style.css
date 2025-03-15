@@ -193,7 +193,8 @@ body{
         text-align: left;
      }
      table {
-      width: 100%;
+       display: grid;
+       width: 100%;
        border-collapse: collapse;
 
      }
