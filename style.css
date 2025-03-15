@@ -199,8 +199,9 @@ body{
      }
      caption{
       text-align: left;
+      margin-bottom: 60px;
       font-size: 18px;
-        font-family: 'inter', serif;
+      font-family: 'inter', serif;
 
      }
      th{
