@@ -268,6 +268,7 @@ body{
      .footer-content2 .copyright {
       font-weight: 400;
       text-align: left;
+      margin-left: 70px;
       text-decoration-line: underline;
      }
      .footer-content2 .creator {
