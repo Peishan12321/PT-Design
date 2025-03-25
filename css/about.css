@@ -44,11 +44,7 @@ body{
     }
      nav ul li a:hover::after{
         width:100%;
-     }
-     .header-text{
-        margin-top: 10%;
-        font-size: 18px;
-        text-align: center;
+     
      }
      .hero{
         display: flex;
