@@ -56,9 +56,9 @@ body{
         font-size: 18px;
         text-align: center;
      }
-     img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
+     .hero{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
       }
