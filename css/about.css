@@ -1,10 +1,17 @@
 
+
 body{
     background: #2f2f2f;
     font-family: 'Inter', sans-serif;
     color: #ffff ;
 }
+#header{
+    width: 100%;
+    height: 100vh;
 
+    background-size: cover;
+    background-position: center;
+}
 .container{
     padding: 10px 10%;
 
@@ -44,7 +51,6 @@ body{
     }
      nav ul li a:hover::after{
         width:100%;
-     
      }
      .hero{
         display: flex;
