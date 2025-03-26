@@ -69,8 +69,6 @@ body{
             background: rgba(0, 0, 0, 0.5); /* Adjust opacity for darkness */
             z-index: 1;
         
-
-
       }
       .video-bg{
         position: absolute;
@@ -85,7 +83,7 @@ body{
       }
 
       h1{
-        z-index: 1; 
+        z-index: 2; 
         font-size: 67px;
         font-family: 'Gloock', serif;
         letter-spacing: 2px;
