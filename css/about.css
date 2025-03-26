@@ -64,7 +64,7 @@ body{
       .video-bg{
         position: absolute;
         
-        top: 30%;
+        top: 50%;
         left: 50%;
         width: 100vw;
         height: 60vh;
@@ -74,11 +74,11 @@ body{
       }
 
       h1{
-        z-index: 1; /* Ensures the text appears above the video */
+        z-index: 1; 
         font-size: 67px;
         font-family: 'Gloock', serif;
         letter-spacing: 2px;
         text-align: center;
-        position: relative; /* Make sure it's positioned above the video */
+        position: relative; 
      
       }
