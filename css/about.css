@@ -1,8 +1,8 @@
 
 body{
-    background: #2f2f2f;
+    background: white;
     font-family: 'Inter', sans-serif;
-    color: #ffff ;
+    color: black ;
 }
 
 .container{
@@ -15,6 +15,7 @@ body{
     align-items: center;
     justify-content: space-between;
     flex-wrap:wrap;
+    background: #2f2f2f;
 }
 
  .logo{
