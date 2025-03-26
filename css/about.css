@@ -52,7 +52,7 @@ body{
         font-family: 'Gloock', serif;
         letter-spacing: 2px;
         text-align: center;
-        z-index: 2;
+        z-index: -1;
      }
      .hero{
         display: flex;
