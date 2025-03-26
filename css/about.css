@@ -52,7 +52,6 @@ body{
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: rgba(0,0,0,0.50);
         color:white;
         margin-bottom: 100px;
         position: relative;
@@ -64,7 +63,7 @@ body{
       }
       .video-bg{
         position: absolute;
-        
+        background: rgba(0,0,0,0.50);
         top: 50%;
         left: 50%;
         width: 100vw;
