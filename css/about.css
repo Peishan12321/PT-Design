@@ -1,5 +1,9 @@
 
-
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 body{
     background: #2f2f2f;
     font-family: 'Inter', sans-serif;
@@ -69,10 +73,6 @@ body{
       }
       .video-bg{
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       min-width: 100%;
       min-height: 100%;
-      object-fit: cover;
       }
