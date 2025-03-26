@@ -63,14 +63,14 @@ body{
       }
       .video-bg{
         position: absolute;
-        z-index: 1;
-        margin-top: 100px;
-        top: 40%;
+        margin-top: 50px;
+        top: 50%;
         left: 50%;
         width: 100vw;
         height: 80vh;
         object-fit: cover;
         transform: translate(-50%, -50%);
+        z-index: 1;
       }
 
       h1{
@@ -80,5 +80,5 @@ body{
     letter-spacing: 2px;
     text-align: center;
     position: relative; /* Make sure it's positioned above the video */
-    margin-top: 0; /
+     
       }
