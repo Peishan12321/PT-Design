@@ -14,9 +14,15 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap:wrap;
-    background: #2f2f2f;
-}
+    flex-wrap: wrap;
+    background: black; 
+    padding: 15px 10%;
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+ }
 
  .logo{
     width: 140px;
