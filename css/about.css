@@ -21,18 +21,13 @@ body{
     justify-content: space-between;
     flex-wrap:wrap;
     background: #2f2f2f;
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    z-index: 100;
+    width: 100vw;
     
 }
 
  .logo{
     width: 140px;
  }
- 
   nav ul li{
     display: inline-block;
     list-style: none;
