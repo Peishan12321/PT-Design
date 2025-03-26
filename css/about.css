@@ -64,10 +64,10 @@ body{
       .video-bg{
         position: absolute;
         
-        top: 50%;
+        top: 30%;
         left: 50%;
         width: 100vw;
-        height: 50vh;
+        height: 60vh;
         object-fit: cover;
         transform: translate(-50%, -50%);
         z-index: 0;
