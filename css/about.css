@@ -52,12 +52,13 @@ body{
         justify-content: center;
         align-items: center;
         text-align: center;
+        background: rgba(0,0,0,0,0.25);
         color:white;
         margin-bottom: 100px;
         position: relative;
         overflow: hidden;
         height: 60vh;
-        width: 100vw;
+        min-width: 100vw;
 
 
       }
