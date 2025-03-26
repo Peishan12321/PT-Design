@@ -46,6 +46,13 @@ body{
         width:100%;
      
      }
+     .header-text h1{
+        margin-top: 10px;
+        font-size: 67px;
+        font-family: 'Gloock', serif;
+        letter-spacing: 2px;
+        text-align: center;
+     }
      .hero{
         display: flex;
         justify-content: center;
