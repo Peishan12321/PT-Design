@@ -46,15 +46,7 @@ body{
         width:100%;
      
      }
-     h1{
-        margin-top: 10px;
-        z-index: -1;
-        font-size: 67px;
-        font-family: 'Gloock', serif;
-        letter-spacing: 2px;
-        text-align: center;
 
-     }
      .hero{
         display: flex;
         justify-content: center;
@@ -73,10 +65,19 @@ body{
         position: absolute;
         z-index: 1;
         margin-top: 100px;
-        top: 30%;
+        top: 50%;
         left: 50%;
         width: 100vw;
         height: 80vh;
         object-fit: cover;
         transform: translate(-50%, -50%);
+      }
+
+      .h1{
+        margin-top: 10px;
+        z-index: -1;
+        font-size: 67px;
+        font-family: 'Gloock', serif;
+        letter-spacing: 2px;
+        text-align: center;
       }
