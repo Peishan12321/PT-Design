@@ -18,28 +18,23 @@ body{
  nav{
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the items horizontally */
-    background: black;
-    padding: 15px 10%; /* Make the navbar background wider */
+    justify-content: space-between;
+    flex-wrap:wrap;
+    background: #2f2f2f;
     position: fixed;
+
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 100;
+    
 }
 
  .logo{
     width: 140px;
  }
-
- nav ul {
-    display: flex;
-    justify-content: center; /* Center the list items */
-    margin: 0; /* Remove any default margin */
-    padding: 0;
- }
+ 
   nav ul li{
-    
+    display: inline-block;
     list-style: none;
     margin: 10px 20px;
   }
@@ -47,7 +42,7 @@ body{
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    
+    position: relative;
 
    }
     nav ul li a::after{
