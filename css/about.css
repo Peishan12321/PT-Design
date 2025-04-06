@@ -124,6 +124,7 @@ body{
     .left-text,
     .right-text {
       margin-right: 158px;
+      margin: 134px;
       font-size: 20px;
       color: #333;
     }
