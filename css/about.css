@@ -120,11 +120,15 @@ body{
       align-items: center;
       padding: 20px 0;
     }
-    
-    .left-text,
     .right-text {
       margin-right: 158px;
-      margin: 134px;
+      margin-top: 134px;
+      font-size: 20px;
+      color: #333;
+    }
+    .left-text{
+      margin-left: 158px;
+      margin-top: 134px;
       font-size: 20px;
       color: #333;
     }
