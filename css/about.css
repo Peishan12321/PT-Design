@@ -99,3 +99,8 @@ body{
         position: relative; 
      
       }
+      .white-section {
+        background-color: #fff;
+        color: #000;
+        padding: 100px 60px;
+      }
