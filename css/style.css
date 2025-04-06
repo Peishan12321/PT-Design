@@ -193,14 +193,14 @@ body{
      }
      .header-text2 p.location {
         margin-top: 10px;
-        font-size: 22px;
+        font-size: 16px;
         font-family: 'inter', serif;
         font-weight: 100;
         text-align: left;
      }
      .header-text2 p.bio {
         margin-top: 37px;
-        font-size: 17px;
+        font-size: 20px;
         font-family: 'inter', serif;
         font-weight: 100;
         text-align: left;
