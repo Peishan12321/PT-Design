@@ -5,9 +5,10 @@
     box-sizing: border-box;
 }
 body{
-    background: white;
+    background: #0d0d0d;
     font-family: 'Inter', sans-serif;
     color: black ;
+    height: 50%;
 }
 
 .container{
@@ -20,7 +21,7 @@ body{
     align-items: center;
     justify-content: space-between;
     flex-wrap:wrap;
-    background: #2f2f2f;
+    background: #0d0d0d;
     
     
 }
