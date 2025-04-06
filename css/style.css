@@ -8,7 +8,7 @@
 body{
     background: #0d0d0d;
     font-family: 'Inter', sans-serif;
-    color: #121212 ;
+    color: #ffff ;
 }
 #header{
     width: 100%;
@@ -118,7 +118,7 @@ body{
      .card {
         width: 100%;
         height: 500px;
-        background: #fff;
+        background: #121212;
         color:#fff;
         display: flex;
         align-items: center;
