@@ -240,7 +240,7 @@ body{
         background:#ED1C24;
         position: absolute;
         left: 0;
-        bottom: -31px;
+        bottom: -2px;
         transition: 0.5s;
      }
      th a:hover::after {
