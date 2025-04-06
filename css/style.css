@@ -233,7 +233,7 @@ body{
      }
      th a:hover {
       text-decoration-line: underline;
-      text-underline-offset: 20px;
+      text-underline-offset: 20%;
       width:100%;
     }
      td{
