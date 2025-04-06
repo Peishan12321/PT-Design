@@ -114,6 +114,7 @@ body{
 
      .text-row {
       background-color: #fff;
+      color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
