@@ -10,6 +10,7 @@ body{
     color: #fff ;
 }
 .hero-section{
+
   background-color: #000;
   color: #fff;
   min-height: 100vh;
@@ -71,7 +72,7 @@ body{
         height: 60vh;
         object-fit: cover;
         transform: translate(-50%, -50%);
-        z-index: 0;
+        z-index: 1;
       }
 
       h1{
