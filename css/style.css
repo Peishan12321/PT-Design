@@ -219,6 +219,8 @@ body{
 
      }
      th{
+      text-decoration: none;
+      color: inherit;
       text-align: left;
       margin-top: 60px;
       font-family: 'inter';
