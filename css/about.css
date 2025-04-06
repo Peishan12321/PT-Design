@@ -105,9 +105,8 @@ body{
       }
       .image-wrapper {
         text-align: center;
-        margin-top: 40px;
      }
      .image-wrapper img{
-      width: 300px;
+      margin-top: 40px;
       height: 300px;
      }
