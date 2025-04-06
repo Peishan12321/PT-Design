@@ -117,16 +117,16 @@ body{
       color: #0d0d0d;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 20px 40px;
     }
     .right-text {
-      
+      margin-top: 134px;
       font-size: 20px;
       color: #333;
     }
     .left-text {
-      
+      margin-top: 134px;
       font-family: 'Gloock', serif;
       font-size: 40px;
       color: #333;
