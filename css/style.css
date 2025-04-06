@@ -284,7 +284,7 @@ body{
    ul li{
       display: inline-block;
       list-style: none;
-      margin: 10px 20px;
+      margin: 10px 10px;
      }
      .footer-content2{
       margin-top: 85px;
@@ -301,13 +301,13 @@ body{
       font-weight: 400;
       text-align: left;
       margin-left: 70px;
-      text-decoration-line: underline;
+      
      }
      .footer-content2 .creator {
       font-weight: 400;
       text-align: right;
       margin-right: 70px;
-      text-decoration-line: underline;
+     
      }
     
      
