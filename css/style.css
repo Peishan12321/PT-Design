@@ -230,11 +230,13 @@ body{
      th a{
       color:#fff;
       text-decoration: none;
+      transition: all 0.3s ease;
      }
      th a:hover {
       text-decoration-line: underline;
       text-underline-offset: 20%;
-      color:#ED1C24;
+      text-decoration-color:#ED1C24;
+      cursor:pointer;
       width:100%;
     }
      td{
