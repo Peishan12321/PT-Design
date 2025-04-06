@@ -234,6 +234,7 @@ body{
      th a:hover {
       text-decoration-line: underline;
       text-underline-offset: 20%;
+      color:#ED1C24;
       width:100%;
     }
      td{
