@@ -232,6 +232,7 @@ body{
       text-decoration: none;
      }
      th a:hover {
+      text-decoration-line: underline;
       width:100%;
     }
      td{
