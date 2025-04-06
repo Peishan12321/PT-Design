@@ -230,17 +230,17 @@ body{
      th a{
       color:#fff;
       text-decoration: none;
-     }
-     th a:hover {
-       content:'';
+      content:'';
         width: 0%;
         height: 3px;
         background:#ED1C24;
         position: absolute;
         left: 0;
-        bottom: -20px;
+        bottom: -31px;
         transition: 0.5s;
-      cursor: pointer;
+     }
+     th a:hover {
+      width:100%;
     }
      td{
       text-align: right;
