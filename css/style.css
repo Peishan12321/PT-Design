@@ -228,15 +228,22 @@ body{
       border-bottom: 1px solid #fff;
      }
      th a{
-      color:#fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+     }
+     th a::after{
+      content:'';
+        width: 0%;
+        height: 3px;
+        background:#ED1C24;
+        position: absolute;
+        left: 0;
+        bottom: -31px;
+        transition: 0.5s;
      }
      th a:hover {
-      text-decoration-line: underline;
-      text-underline-offset: 20%;
-      text-decoration-color:#ED1C24;
-      cursor:pointer;
       width:100%;
     }
      td{
