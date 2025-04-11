@@ -133,11 +133,11 @@ body{
       font-size: 40px;
       color: #333;
     }
-    .image-section {
-      width: 100%;            /* Ensure the section takes the full width */
-      display: block;         /* Make it behave like a block element */
-      text-align: center;     /* Center content inside the section */
-      margin-top: 40px;       /* Space between the text and image */
+    .image-container {
+      width: 100%;            /* Ensure it takes the full width */
+      display: block;         /* Block-level container */
+      text-align: center;     /* Center the image */
+      margin-top: 40px;       /* Space between text and image */
     }
     
     .emoji {
