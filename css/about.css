@@ -135,6 +135,7 @@ body{
     }
     .image-section {
       width: 100%;
+      display: block;
       text-align: center;  /* Center the image */
       margin-top: 40px;  /* Add space between text and image */
     }
