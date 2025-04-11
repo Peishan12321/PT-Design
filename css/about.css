@@ -133,4 +133,15 @@ body{
       font-size: 40px;
       color: #333;
     }
+    .image-container {
+      width: 100%;  /* Take up the full width */
+      display: block;  /* Block-level container to ensure it fills the parent */
+      text-align: center;  /* Center the content inside */
+      margin-top: 40px;  /* Add some space between the text and the image */
+    }
+    
+    .emoji {
+      max-width: 100%;  /* Ensures image resizes responsively */
+      height: auto;     /* Maintain aspect ratio */
+    }
     
