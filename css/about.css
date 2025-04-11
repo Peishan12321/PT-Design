@@ -116,26 +116,29 @@ body{
       background-color: #fff;
       color: #0d0d0d;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;  /* Stack elements vertically */
       align-items: flex-start;
       padding: 20px 40px;
     }
+    
     .right-text {
-      margin-top: 104px;
-      margin-right: 158px;
       font-size: 20px;
       color: #333;
+      margin-top: 0;  /* Remove margin-top */
+      margin-bottom: 20px;  /* Optional: Space below text */
     }
+    
     .left-text {
-      margin-top: 104px;
-      margin-left: 158px;
       font-family: 'Gloock', serif;
       font-size: 40px;
       color: #333;
+      margin-top: 0;  /* Remove margin-top */
+      margin-bottom: 20px;  /* Optional: Space below left-text */
     }
+    
     .emoji {
       display: block;
-      margin: 0 auto; /* Centers the image */
+      margin: 20px auto;  /* Adds space above and below the image */
       max-width: 100%; /* Ensures image resizes on smaller screens */
       height: auto;
     }
