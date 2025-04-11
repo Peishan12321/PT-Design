@@ -133,8 +133,15 @@ body{
       font-size: 40px;
       color: #333;
     }
+    .image-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;  /* Center the image */
+      margin-top: 40px;  /* Add space between text and image */
+    }
+    
     .emoji {
-      flex-direction: column;
-      max-width: 100%;
+      display: block;
+      max-width: 100%; /* Ensures image resizes on smaller screens */
       height: auto;
     }
