@@ -133,3 +133,7 @@ body{
       font-size: 40px;
       color: #333;
     }
+    .emoji {
+      max-width: 100%;
+      height: auto;
+    }
