@@ -67,6 +67,7 @@ body{
         overflow: hidden;
         height: 60vh;
         min-width: 100vw;
+        padding-top: 60px;
      }
       .hero::after {
             content: "";
@@ -81,9 +82,7 @@ body{
       }
       .video-bg{
         position: absolute;
-        
         top: 50%;
-        left: 50%;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
