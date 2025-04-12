@@ -146,6 +146,7 @@ body{
       height: auto;     /* Maintain aspect ratio */
     }
     .content-grid{
+      background-color: #fff;
       margin-top: 100px;
       display: grid;
       gap: 1.5rem;
