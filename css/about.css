@@ -62,10 +62,9 @@ body{
         align-items: center;
         text-align: center;
         color:white;
-        margin-bottom: 100px;
         position: relative;
         overflow: hidden;
-        height: 100vh;
+        height: 80vh;
         min-width: 100vw;
         margin-top: 60px;
         
