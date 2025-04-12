@@ -68,6 +68,7 @@ body{
         height: 60vh;
         min-width: 100vw;
         margin-top: 60px;
+        overflow: hidden;
         
      }
       .hero::after {
