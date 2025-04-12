@@ -136,7 +136,7 @@ body{
     }
     .image-container {
       background-color: #fff;
-      width: 100%;  /* Take up the full width */
+      width: absolute;  /* Take up the full width */
       display: block;  /* Block-level container to ensure it fills the parent */
       text-align: center;  /* Center the content inside */ 
     }
