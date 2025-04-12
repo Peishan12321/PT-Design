@@ -67,7 +67,7 @@ body{
         overflow: hidden;
         height: 60vh;
         min-width: 100vw;
-        padding-top: 60px;
+        margin-top: 60px;
         
      }
       .hero::after {
