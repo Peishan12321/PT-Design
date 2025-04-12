@@ -1,16 +1,22 @@
 
 *{
-    margin: 0;
-    padding: 0;
+  
+    margin:0;
+    padding:0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 body{
     background: #0d0d0d;
     font-family: 'Inter', sans-serif;
-    color: black ;
+    color: #ffff ;
 }
+#header{
+    width: 100%;
+    height: 100vh;
 
+    background-size: cover;
+    background-position: center;
+}
 .container{
     padding: 10px 10%;
 
@@ -21,9 +27,6 @@ body{
     align-items: center;
     justify-content: space-between;
     flex-wrap:wrap;
-    background: #0d0d0d;
-    overflow-x: hidden;
-  
     
 }
 
@@ -54,7 +57,6 @@ body{
     }
      nav ul li a:hover::after{
         width:100%;
-     
      }
 
      .hero{
