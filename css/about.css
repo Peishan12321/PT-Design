@@ -142,7 +142,7 @@ body{
     }
     
     .emoji {
-      max-width: 100%;  /* Ensures image resizes responsively */
+      max-width: 90%;  /* Ensures image resizes responsively */
       height: auto;     /* Maintain aspect ratio */
     }
     
