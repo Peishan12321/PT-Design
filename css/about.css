@@ -22,9 +22,8 @@ body{
     justify-content: space-between;
     flex-wrap:wrap;
     background: #0d0d0d;
-    overflow: visible;
-    
-    
+    overflow-x: hidden;
+  
     
 }
 
