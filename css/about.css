@@ -65,7 +65,7 @@ body{
         position: relative;
         overflow: hidden;
         height: 60vh;
-        min-width: 90vw;
+        min-width: 100vw;
         margin-top: 40px;
         
      }
@@ -149,7 +149,7 @@ body{
       background-color: #fff;
       padding-top: 40px;
       display: grid;
-      gap: 1.5rem;
+      gap: 1rem;
       grid-template-columns: 50% 50%;
 
 
