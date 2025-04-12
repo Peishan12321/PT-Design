@@ -102,6 +102,7 @@ body{
       }
       .white-section {
         background-color: #fff;
+        display: flow-root;
         color: #000;
       }
       .image-wrapper {
