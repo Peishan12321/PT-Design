@@ -65,7 +65,7 @@ body{
         position: relative;
         overflow: hidden;
         height: 60vh;
-        width: 100vw;
+        width: absolute;
         margin-top: 40px;
         
      }
