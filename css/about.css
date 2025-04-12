@@ -148,7 +148,7 @@ body{
     .content-grid{
       background-color: #fff;
       padding-top: 97px;
-      margin-left: 158px;
+      padding-left: 158px;
       display: grid;
       gap: 1.5rem;
       grid-template-columns: 50% 50%;
