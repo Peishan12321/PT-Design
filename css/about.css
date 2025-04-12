@@ -150,6 +150,7 @@ body{
       padding-top: 40px;
       display: grid;
       gap: 1.5rem;
+      width: flex;
       grid-template-columns: 50% 50%;
 
 
