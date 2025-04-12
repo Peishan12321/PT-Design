@@ -114,7 +114,7 @@ body{
 
      .text-row {
       background-color: #fff;
-      color: #fff;
+      color: #0d0d0d;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -141,6 +141,7 @@ body{
     }
     
     .emoji {
+      background-color: #fff;
       max-width: 100%;  /* Ensures image resizes responsively */
       height: auto;     /* Maintain aspect ratio */
     }
