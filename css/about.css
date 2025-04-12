@@ -135,6 +135,7 @@ body{
       color: #333;
     }
     .image-container {
+      background-color: #fff;
       width: 100%;  /* Take up the full width */
       display: block;  /* Block-level container to ensure it fills the parent */
       text-align: center;  /* Center the content inside */ 
@@ -142,6 +143,6 @@ body{
     
     .emoji {
       max-width: 100%;  /* Ensures image resizes responsively */
-      height: 100%;     /* Maintain aspect ratio */
+      height: auto;     /* Maintain aspect ratio */
     }
     
