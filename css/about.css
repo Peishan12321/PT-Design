@@ -147,9 +147,9 @@ body{
     }
     .content-grid{
       background-color: #fff;
-      padding-top: 40px;
+      padding-top: 68px;
       display: grid;
-      gap: 1rem;
+      gap: 0.5rem;
       grid-template-columns: 50% 50%;
 
 
