@@ -61,7 +61,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ---- LAYOUT ---- */
 .container {
-  max-width: 900px;
+  max-width: 1512px;
   margin: 0 auto;
   padding: 32px 32px 0;
 }
@@ -97,7 +97,7 @@ button { font: inherit; cursor: pointer; }
 .nav-mark {
   width: 22px;
   height: 22px;
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .nav-logo-dot {
@@ -190,9 +190,33 @@ button { font: inherit; cursor: pointer; }
 /* ============================================================
    HERO
    ============================================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   padding: 40px 0 72px;
 }
+
+.hero .badge,
+.hero-title,
+.hero-sub,
+.hero-ctas {
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero .badge       { animation-delay: 0.1s; }
+.hero-title        { animation-delay: 0.25s; }
+.hero-sub          { animation-delay: 0.4s; }
+.hero-ctas         { animation-delay: 0.55s; }
 
 .hero-title {
   font-family: var(--font-display);
@@ -255,7 +279,7 @@ button { font: inherit; cursor: pointer; }
 
 .work-card {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7;
   background: var(--bg-surface);
   border: 0.5px solid var(--border-subtle);
   border-radius: var(--radius-xl);
@@ -436,6 +460,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 .exp-row:hover { padding-left: 8px; }
+.exp-row:last-child { border-bottom: none; }
 
 .exp-row h3 {
   font-family: var(--font-display);
@@ -521,7 +546,7 @@ button { font: inherit; cursor: pointer; }
    ============================================================ */
 .site-footer {
   padding: 0 32px;
-  max-width: 900px;
+  max-width: 1512px;
   margin: 80px auto 0;
 }
 
