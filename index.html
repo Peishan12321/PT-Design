@@ -30,33 +30,17 @@
               '0%': { opacity: '0', transform: 'translateY(28px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            'fade-in': {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
             'slide-in-right': {
               '0%': { opacity: '0', transform: 'translateX(40px)' },
               '100%': { opacity: '1', transform: 'translateX(0)' },
             },
-            'scale-in': {
-              '0%': { opacity: '0', transform: 'scale(0.96)' },
-              '100%': { opacity: '1', transform: 'scale(1)' },
-            },
-            marquee: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
           },
           animation: {
-            'fade-up': 'fade-up 0.7s ease forwards',
+            'fade-up':         'fade-up 0.7s ease forwards',
             'fade-up-delay-1': 'fade-up 0.7s 0.1s ease forwards',
             'fade-up-delay-2': 'fade-up 0.7s 0.2s ease forwards',
             'fade-up-delay-3': 'fade-up 0.7s 0.35s ease forwards',
-            'fade-up-delay-4': 'fade-up 0.7s 0.5s ease forwards',
-            'fade-in': 'fade-in 1s 0.3s ease forwards',
-            'slide-in-right': 'slide-in-right 0.8s 0.4s ease forwards',
-            'scale-in': 'scale-in 0.6s ease forwards',
-            marquee: 'marquee 28s linear infinite',
+            'slide-in-right':  'slide-in-right 0.8s 0.4s ease forwards',
           },
         },
       },
@@ -67,16 +51,17 @@
     html { scroll-behavior: smooth; }
     body { background-color: #141414; color: #fff; overflow-x: hidden; }
 
-    /* Opacity-0 for animation start states */
     .anim-start { opacity: 0; }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: #141414; }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
-    /* Nav blur */
     .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    /* Mobile menu */
+    .mobile-menu { transform: translateY(-8px); opacity: 0; pointer-events: none; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
 
     /* Card hover */
     .project-card { transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -85,103 +70,119 @@
     .card-btn { transition: background 0.25s ease; }
 
     /* More work hover */
-    .more-work-btn:hover .arrow-circle { transform: translateX(6px) rotate(0deg); background: #fff; }
+    .more-work-btn:hover .arrow-circle { transform: translateX(6px); background: #fff; }
     .more-work-btn:hover .arrow-circle svg { color: #e50914; }
     .arrow-circle { transition: transform 0.3s ease, background 0.3s ease; }
     .arrow-circle svg { transition: color 0.3s ease; }
 
     /* Contact link hover */
-    .contact-link { transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
-    .contact-link:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.35); color: #fff; }
+    .contact-link { transition: background 0.25s ease, border-color 0.25s ease; }
+    .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
-    /* Intersection observer triggered animations */
+    /* Scroll reveal */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* Status dot pulse */
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
     .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
-
-    /* Logo strip */
-    .logo-strip-inner { display: flex; gap: 48px; align-items: center; white-space: nowrap; }
 
     /* Noise overlay */
     .noise::after {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      border-radius: inherit;
+      pointer-events: none; border-radius: inherit;
     }
 
-    /* Red underline on "together" */
     .together-text { color: #e50914; }
 
-    /* Cursor glow */
-    .cursor-dot {
-      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
-      background: #e50914; border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.08s ease, opacity 0.3s ease;
-      mix-blend-mode: normal;
+    /* Custom cursor — desktop only */
+    @media (pointer: fine) {
+      .cursor-dot {
+        position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+        background: #e50914; border-radius: 50%;
+        pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease;
+      }
+      .cursor-ring {
+        position: fixed; top: 0; left: 0; width: 32px; height: 32px;
+        border: 1px solid rgba(229,9,20,0.4); border-radius: 50%;
+        pointer-events: none; z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease;
+      }
+      body:has(a:hover) .cursor-ring,
+      body:has(button:hover) .cursor-ring { width: 48px; height: 48px; border-color: rgba(229,9,20,0.6); }
     }
-    .cursor-ring {
-      position: fixed; top: 0; left: 0; width: 32px; height: 32px;
-      border: 1px solid rgba(229,9,20,0.4); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
-    }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; border-color: rgba(229,9,20,0.6); }
   </style>
 </head>
 <body class="font-dm">
 
-  <!-- Custom cursor -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <!-- Custom cursor (desktop only) -->
+  <div class="cursor-dot hidden md:block" id="cursorDot"></div>
+  <div class="cursor-ring hidden md:block" id="cursorRing"></div>
 
   <!-- ─── NAVIGATION ──────────────────────────────────────────────── -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-9 pt-8">
-    <nav class="bg-surface/80 nav-blur border border-border rounded-xl flex items-center justify-between px-6 h-16 max-w-[1440px] mx-auto">
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-9 pt-4 md:pt-8">
+    <nav class="bg-surface/80 nav-blur border border-border rounded-xl flex items-center justify-between px-4 md:px-6 h-14 md:h-16 max-w-[1440px] mx-auto">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#" class="flex items-center gap-2.5 group">
         <div class="w-[22px] h-[22px] rounded-full overflow-hidden shrink-0 ring-1 ring-white/10">
           <img src="https://www.figma.com/api/mcp/asset/e29ae770-d7aa-4390-a26a-5f134372478c" alt="Pei-shan" class="w-full h-full object-cover" />
         </div>
-        <span class="font-gloock text-[20px] leading-none text-white group-hover:text-subtle transition-colors duration-200">Pei-shan</span>
+        <span class="font-gloock text-[18px] md:text-[20px] leading-none text-white">Pei-shan</span>
       </a>
 
-      <!-- Nav links -->
-      <div class="flex items-center gap-6">
-        <a href="#work" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">Work</a>
-        <a href="#about" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">About</a>
-        <a href="#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">Contact</a>
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#work" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Work</a>
+        <a href="#about" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
+        <a href="#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
       </div>
 
-      <!-- CTA -->
-      <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
+      <!-- Desktop CTA -->
+      <a href="#contact" class="hidden md:block bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
         Get in touch
       </a>
+
+      <!-- Mobile hamburger -->
+      <button id="menuBtn" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menu">
+        <span class="block w-5 h-[1.5px] bg-white transition-all duration-200" id="bar1"></span>
+        <span class="block w-5 h-[1.5px] bg-white transition-all duration-200" id="bar2"></span>
+        <span class="block w-5 h-[1.5px] bg-white transition-all duration-200" id="bar3"></span>
+      </button>
     </nav>
+
+    <!-- Mobile menu dropdown -->
+    <div id="mobileMenu" class="mobile-menu md:hidden mt-2 bg-surface/95 nav-blur border border-border rounded-xl px-5 py-4 flex flex-col gap-4 max-w-[1440px] mx-auto">
+      <a href="#work"    onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">Work</a>
+      <a href="#about"   onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">About</a>
+      <a href="#contact" onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">Contact</a>
+      <a href="#contact" onclick="closeMenu()" class="bg-accent text-white font-dm font-medium text-[14px] rounded-full px-4 py-2.5 text-center mt-1">Get in touch</a>
+    </div>
   </header>
 
   <!-- ─── MAIN ────────────────────────────────────────────────────── -->
-  <main class="max-w-[1440px] mx-auto px-9">
+  <main class="max-w-[1440px] mx-auto px-4 md:px-9">
 
     <!-- ─── HERO ──────────────────────────────────────────────────── -->
-    <section class="flex items-center justify-between pt-40 pb-24 gap-12">
+    <section class="flex flex-col-reverse md:flex-row md:items-center md:justify-between pt-28 md:pt-40 pb-12 md:pb-24 gap-8 md:gap-12">
+
+      <!-- Right — portrait (shows first on mobile via flex-col-reverse) -->
+      <div class="anim-start animate-slide-in-right relative w-full md:flex-1 md:max-w-[716px] h-[320px] sm:h-[420px] md:h-[545px] rounded-2xl overflow-hidden shrink-0">
+        <img
+          src="https://www.figma.com/api/mcp/asset/01aa5f39-d806-4857-a43a-df287a9eb63f"
+          alt="Pei-shan"
+          class="absolute w-[152%] h-[106%] max-w-none object-cover top-[-3%] left-[-14%]"
+        />
+      </div>
+
       <!-- Left -->
-      <div class="flex flex-col gap-6 max-w-[605px] shrink-0">
+      <div class="flex flex-col gap-5 md:gap-6 md:max-w-[605px] md:shrink-0">
         <!-- Status badge -->
         <div class="anim-start animate-fade-up inline-flex items-center gap-2 border border-border rounded-full px-3 py-1.5 w-fit">
           <span class="pulse-dot w-1.5 h-1.5 rounded-sm bg-green-500 shrink-0"></span>
@@ -189,118 +190,102 @@
         </div>
 
         <!-- Heading -->
-        <h1 class="anim-start animate-fade-up-delay-1 font-gloock text-[68px] leading-[1.1] tracking-[-0.01em] text-white">
+        <h1 class="anim-start animate-fade-up-delay-1 font-gloock text-[40px] sm:text-[52px] md:text-[68px] leading-[1.1] tracking-[-0.01em] text-white">
           Design that connects through story and&nbsp;meaning
         </h1>
 
         <!-- Bio -->
-        <p class="anim-start animate-fade-up-delay-2 font-dm font-light text-[20px] leading-[1.45] text-subtle max-w-[560px]">
+        <p class="anim-start animate-fade-up-delay-2 font-dm font-light text-[16px] md:text-[20px] leading-[1.55] text-subtle md:max-w-[560px]">
           I'm Pei-Shan, a UI/UX designer based in Sydney, shaped by storytelling and human connection, turning inspiration from people into thoughtful, considered product experiences.
         </p>
 
         <!-- CTAs -->
-        <div class="anim-start animate-fade-up-delay-3 flex items-center gap-4">
-          <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">
+        <div class="anim-start animate-fade-up-delay-3 flex items-center gap-3 md:gap-4">
+          <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">
             Get in touch
           </a>
-          <a href="#work" class="border border-border hover:border-white/30 transition-colors duration-200 text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">
+          <a href="#work" class="border border-border hover:border-white/30 transition-colors duration-200 text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">
             View work
           </a>
         </div>
       </div>
 
-      <!-- Right — portrait -->
-      <div class="anim-start animate-slide-in-right relative flex-1 max-w-[716px] h-[545px] rounded-2xl overflow-hidden shrink-0">
-        <img
-          src="https://www.figma.com/api/mcp/asset/01aa5f39-d806-4857-a43a-df287a9eb63f"
-          alt="Pei-shan"
-          class="absolute w-[152%] h-[106%] max-w-none object-cover top-[-3%] left-[-14%]"
-        />
-      </div>
     </section>
 
     <!-- ─── SELECTED WORK ─────────────────────────────────────────── -->
-    <section id="work" class="flex flex-col gap-6 pb-16">
-      <!-- Section label -->
-      <p class="reveal font-dm font-medium text-[14px] text-muted tracking-[0.14em] uppercase">Selected work</p>
+    <section id="work" class="flex flex-col gap-4 md:gap-6 pb-12 md:pb-16">
+      <p class="reveal font-dm font-medium text-[13px] md:text-[14px] text-muted tracking-[0.14em] uppercase">Selected work</p>
 
       <!-- Project 1 — Classics for a Cause -->
-      <div class="reveal project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer">
-        <!-- BG image -->
+      <div class="reveal project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden cursor-pointer">
         <img
           src="https://www.figma.com/api/mcp/asset/1597c645-4de8-4633-af02-e47764f63409"
           alt="Classics for a Cause"
           class="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
-        <!-- Gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
-
-        <!-- Content -->
-        <div class="absolute inset-0 p-9 flex flex-col justify-between">
-          <!-- Top label -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 p-5 md:p-9 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
-            <span class="font-dm font-semibold text-[12px] text-white/90 tracking-[0.22em] uppercase">Classics for a cause</span>
+            <span class="font-dm font-semibold text-[11px] md:text-[12px] text-white/90 tracking-[0.22em] uppercase">Classics for a cause</span>
           </div>
-          <!-- Bottom info -->
-          <div class="flex flex-col gap-6">
-            <!-- Logo -->
-            <div class="h-10 w-20 overflow-hidden">
+          <div class="flex flex-col gap-3 md:gap-6">
+            <div class="h-8 md:h-10 w-16 md:w-20 overflow-hidden">
               <img src="https://www.figma.com/api/mcp/asset/15dbaec1-f788-4e76-9190-ee93df1c6416" alt="Logo" class="h-full w-auto object-contain" />
             </div>
-            <h2 class="font-gloock text-[38px] leading-[1.1] text-white max-w-[500px]">Turning Passion into Access and Classics into Reality</h2>
-            <button class="card-btn bg-white text-[#151515] font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
+            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">Turning Passion into Access and Classics into Reality</h2>
+            <button class="card-btn bg-white text-[#151515] font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</button>
           </div>
         </div>
       </div>
 
       <!-- Project 2 — ProMedicine -->
-      <div class="reveal reveal-delay-1 project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer">
+      <div class="reveal reveal-delay-1 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden cursor-pointer">
         <img
           src="https://www.figma.com/api/mcp/asset/a6ff4e24-03c6-46dd-b248-281cc2d70061"
           alt="ProMedicine"
           class="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
-        <div class="absolute inset-0 px-9 py-7 flex flex-col justify-between">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
             <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
           </div>
-          <div class="flex flex-col gap-4">
-            <h2 class="font-gloock text-[38px] leading-[1.1] text-white">ProMedicine</h2>
-            <p class="font-dm font-light text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
-            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
+          <div class="flex flex-col gap-2 md:gap-4">
+            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white">ProMedicine</h2>
+            <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
+            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</button>
           </div>
         </div>
       </div>
 
       <!-- Project 3 — Lost & Found -->
-      <div class="reveal reveal-delay-2 project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer bg-surface border border-border">
+      <div class="reveal reveal-delay-2 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden cursor-pointer bg-surface border border-border">
         <img
           src="https://www.figma.com/api/mcp/asset/1a9a5a8c-baf8-4546-8356-d06bc3d1a3ad"
           alt="Lost and Found"
           class="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
-        <div class="absolute inset-0 px-9 py-7 flex flex-col justify-between">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
             <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Lost &amp; Found</span>
           </div>
-          <div class="flex flex-col gap-4">
-            <h2 class="font-gloock text-[38px] leading-[1.1] text-white">Lost and Found</h2>
-            <p class="font-dm font-light text-[14px] text-white/75">UI/UX design for a community-driven lost item platform.</p>
-            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
+          <div class="flex flex-col gap-2 md:gap-4">
+            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white">Lost and Found</h2>
+            <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a community-driven lost item platform.</p>
+            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</button>
           </div>
         </div>
       </div>
 
       <!-- More Work CTA -->
-      <a href="#" class="reveal more-work-btn bg-accent border border-border rounded-[18px] flex items-center justify-between px-9 py-6 cursor-pointer group">
-        <span class="font-gloock text-[56px] leading-none tracking-[-0.01em] text-white">More work</span>
-        <div class="arrow-circle w-[64px] h-[64px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
+      <a href="#" class="reveal more-work-btn bg-accent rounded-[14px] md:rounded-[18px] flex items-center justify-between px-5 md:px-9 py-5 md:py-6 cursor-pointer group">
+        <span class="font-gloock text-[36px] md:text-[56px] leading-none tracking-[-0.01em] text-white">More work</span>
+        <div class="arrow-circle w-[44px] h-[44px] md:w-[64px] md:h-[64px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white md:w-6 md:h-6">
             <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
@@ -308,38 +293,33 @@
     </section>
 
     <!-- ─── ABOUT ──────────────────────────────────────────────────── -->
-    <section id="about" class="border-t border-border flex flex-col items-center gap-10 py-40">
-      <!-- Label -->
-      <p class="reveal font-dm font-medium text-[14px] text-muted tracking-[0.14em] uppercase">About</p>
+    <section id="about" class="border-t border-border flex flex-col items-center gap-8 md:gap-10 py-20 md:py-40">
+      <p class="reveal font-dm font-medium text-[13px] md:text-[14px] text-muted tracking-[0.14em] uppercase">About</p>
 
-      <div class="reveal flex flex-col gap-6 items-center max-w-[751px]">
-        <p class="font-dm font-light text-[17px] leading-[1.7] text-subtle text-center">
+      <div class="reveal flex flex-col gap-5 md:gap-6 items-center max-w-[751px] px-1">
+        <p class="font-dm font-light text-[15px] md:text-[17px] leading-[1.7] text-subtle text-center">
           Pei-Shan is a UI/UX designer based in Sydney. She focuses on bringing clarity to complex systems and turning them into intuitive product experiences.
         </p>
-        <p class="font-dm font-light text-[17px] leading-[1.7] text-subtle text-center">
+        <p class="font-dm font-light text-[15px] md:text-[17px] leading-[1.7] text-subtle text-center">
           Guided by storytelling and human insight, she transforms inspiration from people into intentional, well-crafted design. From the fashion industry in Taiwan to UI/UX in Sydney — resilience and curiosity define her approach.
         </p>
       </div>
-
     </section>
 
     <!-- ─── CONTACT ───────────────────────────────────────────────── -->
-    <section id="contact" class="pb-16">
-      <div class="reveal bg-[#222] rounded-[18px] px-9 py-10 flex flex-col gap-10 relative overflow-hidden noise">
-        <!-- Label -->
-        <p class="font-dm text-[14px] text-white/45 tracking-[0.126em] uppercase pl-2.5">Get in touch</p>
+    <section id="contact" class="pb-12 md:pb-16">
+      <div class="reveal bg-[#222] rounded-[14px] md:rounded-[18px] px-5 md:px-9 py-8 md:py-10 flex flex-col gap-7 md:gap-10 relative overflow-hidden noise">
+        <p class="font-dm text-[12px] md:text-[14px] text-white/45 tracking-[0.126em] uppercase pl-0 md:pl-2.5">Get in touch</p>
 
-        <!-- Display heading -->
         <div>
-          <p class="font-dm-serif text-[120px] leading-[0.92] tracking-[-0.025em] text-white">Let's work</p>
-          <p class="font-dm-serif text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
+          <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] text-white">Let's work</p>
+          <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
         </div>
 
-        <!-- Links -->
-        <div class="flex items-center gap-4">
-          <a href="#" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">Resume</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">LinkedIn</a>
-          <a href="mailto:hello@peishan.design" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">Email</a>
+        <div class="flex flex-wrap items-center gap-3 md:gap-4">
+          <a href="#" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Resume</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">LinkedIn</a>
+          <a href="mailto:hello@peishan.design" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Email</a>
         </div>
       </div>
     </section>
@@ -347,24 +327,49 @@
   </main>
 
   <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
-  <footer class="max-w-[1440px] mx-auto px-9 border-t border-border flex items-center justify-between py-6 pb-10">
-    <p class="font-dm text-[12px] text-white/28">© 2026. All rights reserved.</p>
-    <p class="font-dm text-[12px] text-white/28">Made by Pei-shan</p>
+  <footer class="max-w-[1440px] mx-auto px-4 md:px-9 border-t border-border flex items-center justify-between py-6 pb-8 md:pb-10">
+    <p class="font-dm text-[11px] md:text-[12px] text-white/28">© 2026. All rights reserved.</p>
+    <p class="font-dm text-[11px] md:text-[12px] text-white/28">Made by Pei-shan</p>
   </footer>
 
   <script>
-    // ── Cursor tracking ──────────────────────────────────────────
-    const dot = document.getElementById('cursorDot');
+    // ── Custom cursor (desktop only) ─────────────────────────────
+    const dot  = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
-    document.addEventListener('mousemove', (e) => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        dot.style.left  = e.clientX + 'px';
+        dot.style.top   = e.clientY + 'px';
+        ring.style.left = e.clientX + 'px';
+        ring.style.top  = e.clientY + 'px';
+      });
+    }
+
+    // ── Mobile menu ──────────────────────────────────────────────
+    const menuBtn    = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      bar1.style.transform = menuOpen ? 'translateY(6.5px) rotate(45deg)'  : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : '';
     });
 
-    // ── Intersection Observer for scroll reveals ─────────────────
-    const reveals = document.querySelectorAll('.reveal');
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+    }
+
+    // ── Scroll reveals ───────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -372,14 +377,8 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
-
-    // ── Hero animation trigger ───────────────────────────────────
-    // Remove anim-start so tailwind animations play
-    document.querySelectorAll('.anim-start').forEach(el => {
-      // already handled by CSS animation + opacity:0 start
-    });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
