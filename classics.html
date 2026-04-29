@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classics for a Cause — Case Study | Pei-shan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            gloock: ['Gloock', 'Georgia', 'serif'],
+            dm: ['"DM Sans"', 'sans-serif'],
+            'dm-serif': ['"DM Serif Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            bg: '#141414',
+            surface: '#1a1a1a',
+            border: '#222222',
+            accent: '#e50914',
+            muted: '#777777',
+            subtle: '#cccccc',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #141414; color: #fff; overflow-x: hidden; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #141414; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .together-text { color: #e50914; }
+    .contact-link { transition: background 0.25s ease, border-color 0.25s ease; }
+    .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    /* Noise overlay */
+    .noise::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; border-radius: inherit;
+    }
+
+    /* Custom cursor desktop only */
+    @media (pointer: fine) {
+      .cursor-dot { position:fixed;top:0;left:0;width:8px;height:8px;background:#e50914;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s ease; }
+      .cursor-ring { position:fixed;top:0;left:0;width:32px;height:32px;border:1px solid rgba(229,9,20,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease,width .2s ease,height .2s ease; }
+      body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width:48px;height:48px;border-color:rgba(229,9,20,0.6); }
+    }
+  </style>
+</head>
+<body class="font-dm">
+
+  <div class="cursor-dot hidden md:block" id="cursorDot"></div>
+  <div class="cursor-ring hidden md:block" id="cursorRing"></div>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-9 pt-4 md:pt-8">
+    <nav class="bg-surface/80 nav-blur border border-border rounded-xl flex items-center justify-between px-4 md:px-6 h-14 md:h-16 max-w-[1440px] mx-auto">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-[22px] h-[22px] rounded-full overflow-hidden shrink-0 ring-1 ring-white/10">
+          <img src="https://www.figma.com/api/mcp/asset/e29ae770-d7aa-4390-a26a-5f134372478c" alt="Pei-shan" class="w-full h-full object-cover" />
+        </div>
+        <span class="font-gloock text-[18px] md:text-[20px] leading-none text-white">Pei-shan</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html#work"    class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Work</a>
+        <a href="index.html#about"   class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
+        <a href="index.html#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
+      </div>
+      <a href="index.html#contact" class="hidden md:block bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
+        Get in touch
+      </a>
+      <a href="index.html" class="md:hidden font-dm text-[14px] text-muted hover:text-white transition-colors">← Back</a>
+    </nav>
+  </header>
+
+  <!-- ─── MAIN ─────────────────────────────────────────────────── -->
+  <main class="max-w-[1440px] mx-auto px-4 md:px-9">
+
+    <!-- ─── HERO TITLE ─────────────────────────────────────────── -->
+    <section class="flex flex-col gap-6 md:gap-8 pt-32 md:pt-44 pb-12 md:pb-20 max-w-[910px] mx-auto">
+      <p class="font-dm font-light text-[18px] md:text-[24px] leading-relaxed text-subtle">Classics for a cause</p>
+      <h1 class="font-gloock text-[36px] sm:text-[52px] md:text-[68px] leading-[1.1] tracking-[-0.01em] text-white">
+        Turning Passion into Access and Classics into Reality
+      </h1>
+    </section>
+
+    <!-- ─── HERO VIDEO ─────────────────────────────────────────── -->
+    <section class="reveal pb-12 md:pb-16">
+      <div class="relative w-full h-[240px] sm:h-[380px] md:h-[580px] rounded-[14px] md:rounded-[18px] overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+          <source src="new_home_hero_video.webm" type="video/webm" />
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40"></div>
+      </div>
+    </section>
+
+    <!-- ─── PROJECT DETAILS ─────────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-20 max-w-[910px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+        <div class="flex flex-col gap-4 md:gap-6">
+          <p class="font-dm font-medium text-[14px] text-[#d0d0d0]">Client</p>
+          <p class="font-dm font-medium text-[15px] md:text-[16px] text-white/98">GMGI</p>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-6">
+          <p class="font-dm font-medium text-[14px] text-[#d0d0d0]">Industry</p>
+          <p class="font-dm font-medium text-[15px] md:text-[16px] text-white/98">Loyalty &amp; Rewards</p>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-6">
+          <p class="font-dm font-medium text-[14px] text-[#d0d0d0]">Role</p>
+          <p class="font-dm font-medium text-[15px] md:text-[16px] text-white/98">Lead and Solo Designer</p>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-6">
+          <p class="font-dm font-medium text-[14px] text-[#d0d0d0]">Deliverables</p>
+          <p class="font-dm font-medium text-[15px] md:text-[16px] text-white/98">Desktop / Mobile / APP</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── OVERVIEW ──────────────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-20 max-w-[910px] mx-auto">
+      <div class="flex flex-col gap-6">
+        <h2 class="font-dm font-medium text-[22px] md:text-[24px] text-[#d0d0d0]">Overview</h2>
+        <div class="flex flex-col gap-5 font-dm font-light text-[16px] md:text-[18px] leading-[1.7] text-white/95">
+          <p>Golden Matrix Group operates a membership-based rewards platform for classic car enthusiasts in Australia, offering exclusive automotive discounts, VIP benefits, and access to classic car experiences across desktop, mobile, and app.</p>
+          <p>The platform was migrated from WordPress to an in-house system, but the transition introduced major usability issues. The experience lacked a clear focal point, navigation was confusing, and membership tiers were poorly defined — making it difficult for users to understand the platform's value or what actions to take.</p>
+          <p>The core user base was primarily retirees aged 60–65+ with a strong interest in classic cars. However, the business objective was to attract a younger audience while improving membership conversion and engagement.</p>
+          <p>I was brought in as the sole designer to lead a full redesign of the experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SOLUTION ──────────────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-20 max-w-[910px] mx-auto">
+      <div class="flex flex-col gap-6">
+        <h2 class="font-dm font-medium text-[22px] md:text-[24px] text-[#d0d0d0]">Solution</h2>
+        <div class="font-dm font-light text-[16px] md:text-[18px] leading-[1.7] text-white/98">
+          <p class="mb-4">The end-to-end redesign delivered:</p>
+          <ul class="flex flex-col gap-3 list-none">
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>A simplified and restructured experience across desktop, mobile, and app</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Clearer navigation and improved information hierarchy</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Redesigned membership tiers with improved clarity and value communication</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Stronger visual focus to guide users toward key actions and improve conversion</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>A 100+ component Figma design system supporting a team of developers</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>A consistent cross-platform experience aligned across all devices</span>
+            </li>
+          </ul>
+          <p class="mt-5">The redesign improved clarity, strengthened user engagement, and contributed to measurable improvements in membership conversion after launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DESIGN EXPLORATION ─────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-20">
+      <div class="relative w-full rounded-[14px] md:rounded-[18px] overflow-hidden bg-[#111]">
+        <!-- Design exploration screenshot from Figma -->
+        <img
+          src="https://www.figma.com/api/mcp/asset/1597c645-4de8-4633-af02-e47764f63409"
+          alt="Design exploration across key product screens"
+          class="w-full object-cover"
+          style="min-height:300px;"
+        />
+        <!-- Overlay text -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+          <h2 class="font-gloock text-[28px] sm:text-[40px] md:text-[56px] leading-[1.1] text-white text-center max-w-[700px] px-6">
+            Design exploration across key product screens.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── OUTCOMES ──────────────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-20 max-w-[910px] mx-auto">
+      <div class="flex flex-col gap-6">
+        <h2 class="font-dm font-medium text-[22px] md:text-[24px] text-[#d0d0d0]">The Outcomes</h2>
+        <div class="flex flex-col gap-5 font-dm font-light text-[16px] md:text-[18px] leading-[1.7] text-white/95">
+          <p>Following the launch, the redesigned platform delivered measurable improvements across key metrics:</p>
+          <ul class="flex flex-col gap-3 list-none">
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Improved membership conversion rate after launch</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Stronger user engagement with a clear pathway to VIP membership</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>Reduced bounce rate through clearer value communication</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent mt-1.5 shrink-0">—</span>
+              <span>A scalable 100+ component design system handed to the development team</span>
+            </li>
+          </ul>
+          <p>The redesign improved clarity, strengthened user engagement, and contributed to measurable improvements in membership conversion after launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── NEXT CASE STUDY ────────────────────────────────────── -->
+    <section class="reveal border-t border-border py-12 md:py-16 pb-16 md:pb-24">
+      <p class="font-dm font-medium text-[13px] md:text-[14px] text-muted tracking-[0.14em] uppercase mb-8">Next case study</p>
+      <a href="#" class="block relative h-[280px] md:h-[400px] rounded-[14px] md:rounded-[18px] overflow-hidden cursor-pointer group">
+        <img
+          src="https://www.figma.com/api/mcp/asset/a6ff4e24-03c6-46dd-b248-281cc2d70061"
+          alt="ProMedicine"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 px-6 md:px-9 py-6 md:py-8 flex flex-col justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <h3 class="font-gloock text-[28px] md:text-[38px] leading-[1.1] text-white">ProMedicine</h3>
+            <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
+            <span class="bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- ─── CONTACT ────────────────────────────────────────────── -->
+    <section class="pb-12 md:pb-16">
+      <div class="reveal bg-[#222] rounded-[14px] md:rounded-[18px] px-5 md:px-9 py-8 md:py-10 flex flex-col gap-7 md:gap-10 relative overflow-hidden noise">
+        <p class="font-dm text-[12px] md:text-[14px] text-white/45 tracking-[0.126em] uppercase">Get in touch</p>
+        <div>
+          <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] text-white">Let's work</p>
+          <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 md:gap-4">
+          <a href="#"  class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Resume</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">LinkedIn</a>
+          <a href="mailto:hello@peishan.design" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Email</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ──────────────────────────────────────────────── -->
+  <footer class="max-w-[1440px] mx-auto px-4 md:px-9 border-t border-border flex items-center justify-between py-6 pb-8 md:pb-10">
+    <p class="font-dm text-[11px] md:text-[12px] text-white/28">© 2026. All rights reserved.</p>
+    <p class="font-dm text-[11px] md:text-[12px] text-white/28">Made by Pei-shan</p>
+  </footer>
+
+  <script>
+    // Cursor
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(pointer: fine)').matches && dot) {
+      document.addEventListener('mousemove', (e) => {
+        dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+        ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+      });
+    }
+    // Scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
