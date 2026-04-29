@@ -2,544 +2,384 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pei-shan — UI/UX Designer</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            gloock: ['Gloock', 'Georgia', 'serif'],
+            dm: ['"DM Sans"', 'sans-serif'],
+            'dm-serif': ['"DM Serif Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            bg: '#141414',
+            surface: '#1a1a1a',
+            border: '#222222',
+            accent: '#e50914',
+            muted: '#777777',
+            subtle: '#cccccc',
+          },
+          keyframes: {
+            'fade-up': {
+              '0%': { opacity: '0', transform: 'translateY(28px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'fade-in': {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            'slide-in-right': {
+              '0%': { opacity: '0', transform: 'translateX(40px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            'scale-in': {
+              '0%': { opacity: '0', transform: 'scale(0.96)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+          },
+          animation: {
+            'fade-up': 'fade-up 0.7s ease forwards',
+            'fade-up-delay-1': 'fade-up 0.7s 0.1s ease forwards',
+            'fade-up-delay-2': 'fade-up 0.7s 0.2s ease forwards',
+            'fade-up-delay-3': 'fade-up 0.7s 0.35s ease forwards',
+            'fade-up-delay-4': 'fade-up 0.7s 0.5s ease forwards',
+            'fade-in': 'fade-in 1s 0.3s ease forwards',
+            'slide-in-right': 'slide-in-right 0.8s 0.4s ease forwards',
+            'scale-in': 'scale-in 0.6s ease forwards',
+            marquee: 'marquee 28s linear infinite',
+          },
+        },
+      },
+    }
+  </script>
   <style>
-    /* ============================================================
-       HOME PAGE — page-specific styles
-       ============================================================ */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #141414; color: #fff; overflow-x: hidden; }
 
-    /* ── Hero ── */
-    .home-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      padding: 32px 0 96px;
-      min-height: calc(100vh - 140px);
+    /* Opacity-0 for animation start states */
+    .anim-start { opacity: 0; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #141414; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    /* Nav blur */
+    .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    /* Card hover */
+    .project-card { transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .project-card:hover { transform: scale(1.005); }
+    .project-card:hover .card-btn { background: rgba(255,255,255,0.25); }
+    .card-btn { transition: background 0.25s ease; }
+
+    /* More work hover */
+    .more-work-btn:hover .arrow-circle { transform: translateX(6px) rotate(0deg); background: #fff; }
+    .more-work-btn:hover .arrow-circle svg { color: #e50914; }
+    .arrow-circle { transition: transform 0.3s ease, background 0.3s ease; }
+    .arrow-circle svg { transition: color 0.3s ease; }
+
+    /* Contact link hover */
+    .contact-link { transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+    .contact-link:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.35); color: #fff; }
+
+    /* Intersection observer triggered animations */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Status dot pulse */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
-    .home-hero-left {
-      display: flex;
-      flex-direction: column;
-    }
+    /* Logo strip */
+    .logo-strip-inner { display: flex; gap: 48px; align-items: center; white-space: nowrap; }
 
-    .home-hero-badge {
-      margin-bottom: 28px;
-    }
-
-    .home-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(44px, 5.5vw, 72px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 24px;
-    }
-
-    .home-hero-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 36px;
-    }
-
-    .home-hero-ctas {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .home-hero-photo {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      max-height: 600px;
-    }
-
-    .home-hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    /* ── Selected Work ── */
-    .home-work-section {
-      padding: 64px 0 0;
-      border-top: 0.5px solid var(--border-subtle);
-    }
-
-    .home-work-eyebrow {
-      margin-bottom: 28px;
-    }
-
-    .home-work-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .home-work-card {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform var(--base) var(--ease);
-    }
-
-    .home-work-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .home-work-card img,
-    .home-work-card video {
+    /* Noise overlay */
+    .noise::after {
+      content: '';
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--slow) var(--ease);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      border-radius: inherit;
     }
 
-    .home-work-card:hover img,
-    .home-work-card:hover video {
-      transform: scale(1.03);
+    /* Red underline on "together" */
+    .together-text { color: #e50914; }
+
+    /* Cursor glow */
+    .cursor-dot {
+      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+      background: #e50914; border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease, opacity 0.3s ease;
+      mix-blend-mode: normal;
     }
-
-    .home-work-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.12) 0%,
-        transparent 28%,
-        rgba(0,0,0,0.65) 100%
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 28px 36px;
+    .cursor-ring {
+      position: fixed; top: 0; left: 0; width: 32px; height: 32px;
+      border: 1px solid rgba(229,9,20,0.4); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
     }
-
-    .home-work-tag {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .home-work-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .home-work-bottom {
-      max-width: 60%;
-    }
-
-    .home-work-title {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3vw, 38px);
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    .home-work-desc {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-
-    .home-work-cta {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(255,255,255,0.14);
-      color: #fff;
-      border: 0.5px solid rgba(255,255,255,0.3);
-      border-radius: var(--radius-pill);
-      padding: 7px 18px;
-      font-size: 12px;
-      font-weight: 500;
-      font-family: var(--font-body);
-      cursor: pointer;
-      transition: background var(--base);
-    }
-
-    .home-work-cta:hover {
-      background: rgba(255,255,255,0.26);
-    }
-
-    /* placeholder card with no image */
-    .home-work-card-dark {
-      background: #1a0b1e;
-    }
-
-    /* ── More Work CTA ── */
-    .more-work-cta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 18px;
-      padding: 22px 36px;
-      margin-top: 16px;
-      margin-bottom: 80px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background var(--base) var(--ease);
-    }
-
-    .more-work-cta:hover {
-      background: var(--accent-hover);
-    }
-
-    .more-work-cta-text {
-      font-family: var(--font-display);
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    .more-work-arrow {
-      font-size: 24px;
-      line-height: 1;
-    }
-
-    /* ── About ── */
-    .home-about-section {
-      padding: 80px 0 72px;
-      border-top: 0.5px solid var(--border-subtle);
-      text-align: center;
-    }
-
-    .home-about-copy {
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .home-about-copy .eyebrow {
-      display: block;
-      margin-bottom: 28px;
-    }
-
-    .home-about-copy p {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-
-    .home-about-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 52px;
-    }
-
-    .logo-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 18px;
-      border: 0.5px solid var(--border-default);
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      color: var(--text-tertiary);
-    }
-
-    .logo-pill img {
-      height: 18px;
-      width: auto;
-      filter: brightness(0) invert(0.5);
-    }
-
-    /* ── Contact ── */
-    .home-contact-section {
-      padding: 72px 0 0;
-      border-top: 0.5px solid var(--border-subtle);
-    }
-
-    .home-contact-eyebrow {
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .home-contact-title {
-      font-family: var(--font-display);
-      font-size: clamp(52px, 8vw, 100px);
-      font-weight: 400;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 48px;
-    }
-
-    .home-contact-title .red-italic {
-      color: var(--accent);
-      font-style: italic;
-      display: block;
-    }
-
-    .contact-pill-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding-bottom: 80px;
-    }
-
-    .contact-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 24px;
-      border: 0.5px solid var(--border-default);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      background: transparent;
-      text-decoration: none;
-      transition: color var(--fast), border-color var(--fast), background var(--fast);
-    }
-
-    .contact-pill:hover {
-      color: var(--text-primary);
-      border-color: var(--border-strong);
-      background: var(--bg-elevated);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .home-hero {
-        grid-template-columns: 1fr;
-        padding-bottom: 64px;
-        min-height: unset;
-        gap: 36px;
-      }
-
-      .home-hero-photo {
-        order: -1;
-        max-height: 380px;
-      }
-
-      .home-work-bottom {
-        max-width: 85%;
-      }
-
-      .home-contact-title {
-        font-size: clamp(40px, 10vw, 72px);
-      }
-
-      .home-work-overlay {
-        padding: 20px 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .home-work-bottom {
-        max-width: 95%;
-      }
-
-      .home-work-title {
-        font-size: 22px;
-      }
-    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; border-color: rgba(229,9,20,0.6); }
   </style>
 </head>
-<body>
+<body class="font-dm">
 
-<div class="container">
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ─── NAV ─────────────────────────────────────────── -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <img src="Image/logo 2.png" alt="" class="nav-mark">
-      Pei-shan<span class="nav-logo-dot">·</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="work.html">Work</a></li>
-      <li><a href="#sec-about">About</a></li>
-      <li><a href="#sec-contact">Contact</a></li>
-    </ul>
-    <a href="mailto:peishantsai12321@gmail.com" class="btn btn-primary btn-sm">Get in touch</a>
-  </nav>
+  <!-- ─── NAVIGATION ──────────────────────────────────────────────── -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-9 pt-8">
+    <nav class="bg-surface/80 nav-blur border border-border rounded-xl flex items-center justify-between px-6 h-16 max-w-[1440px] mx-auto">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-[22px] h-[22px] rounded-full overflow-hidden shrink-0 ring-1 ring-white/10">
+          <img src="https://www.figma.com/api/mcp/asset/e29ae770-d7aa-4390-a26a-5f134372478c" alt="Pei-shan" class="w-full h-full object-cover" />
+        </div>
+        <span class="font-gloock text-[20px] leading-none text-white group-hover:text-subtle transition-colors duration-200">Pei-shan</span>
+      </a>
 
-  <!-- ─── HERO ─────────────────────────────────────────── -->
-  <section class="home-hero">
-    <div class="home-hero-left">
-      <div class="badge home-hero-badge">
-        <span class="badge-dot badge-dot-green"></span>
-        <span class="badge-text">Based in Sydney</span>
+      <!-- Nav links -->
+      <div class="flex items-center gap-6">
+        <a href="#work" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">Work</a>
+        <a href="#about" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">About</a>
+        <a href="#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 leading-none">Contact</a>
       </div>
 
-      <h1 class="home-hero-title">Design that connects through story and meaning</h1>
+      <!-- CTA -->
+      <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
+        Get in touch
+      </a>
+    </nav>
+  </header>
 
-      <p class="home-hero-sub">
-        I'm Pei-Shan, a UI/UX designer based in Sydney, shaped by storytelling and human connection, turning inspiration from people into thoughtful, considered product experiences.
-      </p>
+  <!-- ─── MAIN ────────────────────────────────────────────────────── -->
+  <main class="max-w-[1440px] mx-auto px-9">
 
-      <div class="home-hero-ctas">
-        <a href="mailto:peishantsai12321@gmail.com" class="btn btn-primary btn-lg">Get in touch</a>
-        <a href="work.html" class="btn btn-ghost btn-lg">View work</a>
+    <!-- ─── HERO ──────────────────────────────────────────────────── -->
+    <section class="flex items-center justify-between pt-40 pb-24 gap-12">
+      <!-- Left -->
+      <div class="flex flex-col gap-6 max-w-[605px] shrink-0">
+        <!-- Status badge -->
+        <div class="anim-start animate-fade-up inline-flex items-center gap-2 border border-border rounded-full px-3 py-1.5 w-fit">
+          <span class="pulse-dot w-1.5 h-1.5 rounded-sm bg-green-500 shrink-0"></span>
+          <span class="font-dm font-light text-[11px] text-subtle tracking-[0.03em]">Based in Sydney</span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="anim-start animate-fade-up-delay-1 font-gloock text-[68px] leading-[1.1] tracking-[-0.01em] text-white">
+          Design that connects through story and&nbsp;meaning
+        </h1>
+
+        <!-- Bio -->
+        <p class="anim-start animate-fade-up-delay-2 font-dm font-light text-[20px] leading-[1.45] text-subtle max-w-[560px]">
+          I'm Pei-Shan, a UI/UX designer based in Sydney, shaped by storytelling and human connection, turning inspiration from people into thoughtful, considered product experiences.
+        </p>
+
+        <!-- CTAs -->
+        <div class="anim-start animate-fade-up-delay-3 flex items-center gap-4">
+          <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">
+            Get in touch
+          </a>
+          <a href="#work" class="border border-border hover:border-white/30 transition-colors duration-200 text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">
+            View work
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="home-hero-photo">
-      <img src="Image/peishan.png" alt="Pei-shan — UI/UX Designer">
-    </div>
-  </section>
+      <!-- Right — portrait -->
+      <div class="anim-start animate-slide-in-right relative flex-1 max-w-[716px] h-[545px] rounded-2xl overflow-hidden shrink-0">
+        <img
+          src="https://www.figma.com/api/mcp/asset/01aa5f39-d806-4857-a43a-df287a9eb63f"
+          alt="Pei-shan"
+          class="absolute w-[152%] h-[106%] max-w-none object-cover top-[-3%] left-[-14%]"
+        />
+      </div>
+    </section>
 
-</div><!-- /container -->
+    <!-- ─── SELECTED WORK ─────────────────────────────────────────── -->
+    <section id="work" class="flex flex-col gap-6 pb-16">
+      <!-- Section label -->
+      <p class="reveal font-dm font-medium text-[14px] text-muted tracking-[0.14em] uppercase">Selected work</p>
 
-<!-- ─── SELECTED WORK ────────────────────────────────── -->
-<div class="container">
-  <section class="home-work-section" id="sec-work">
-    <p class="eyebrow home-work-eyebrow">Selected work</p>
+      <!-- Project 1 — Classics for a Cause -->
+      <div class="reveal project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer">
+        <!-- BG image -->
+        <img
+          src="https://www.figma.com/api/mcp/asset/1597c645-4de8-4633-af02-e47764f63409"
+          alt="Classics for a Cause"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
 
-    <div class="home-work-stack">
-
-      <!-- 1 · Classics for a Cause -->
-      <article class="home-work-card">
-        <img src="Image/Work1.jpg" alt="Classics for a Cause">
-        <div class="home-work-overlay">
-          <div class="home-work-tag">
-            <span class="home-work-tag-dot"></span>
-            Classics for a Cause
+        <!-- Content -->
+        <div class="absolute inset-0 p-9 flex flex-col justify-between">
+          <!-- Top label -->
+          <div class="flex items-center gap-2">
+            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+            <span class="font-dm font-semibold text-[12px] text-white/90 tracking-[0.22em] uppercase">Classics for a cause</span>
           </div>
-          <div class="home-work-bottom">
-            <h2 class="home-work-title">Turning Passion into Access and Classics into Reality</h2>
-            <p class="home-work-desc">UI/UX design for a platform connecting classic car enthusiasts with a cause.</p>
-            <button class="home-work-cta">View case study →</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2 · ProMedicine -->
-      <article class="home-work-card home-work-card-dark">
-        <div class="home-work-overlay" style="background: linear-gradient(to bottom, rgba(50,0,60,0.5) 0%, transparent 30%, rgba(0,0,0,0.75) 100%);">
-          <div class="home-work-tag">
-            <span class="home-work-tag-dot"></span>
-            ProMedicine
-          </div>
-          <div class="home-work-bottom">
-            <h2 class="home-work-title">ProMedicine</h2>
-            <p class="home-work-desc">UI/UX design for a community-driven health information platform.</p>
-            <button class="home-work-cta">View case study →</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3 · Lost and Found -->
-      <article class="home-work-card">
-        <video src="Video/shan.mp4" autoplay muted loop playsinline></video>
-        <div class="home-work-overlay">
-          <div class="home-work-tag">
-            <span class="home-work-tag-dot"></span>
-            Lost &amp; Found
-          </div>
-          <div class="home-work-bottom">
-            <h2 class="home-work-title">Lost and Found</h2>
-            <p class="home-work-desc">UI/UX design for a community-driven lost item platform.</p>
-            <button class="home-work-cta">View case study →</button>
+          <!-- Bottom info -->
+          <div class="flex flex-col gap-6">
+            <!-- Logo -->
+            <div class="h-10 w-20 overflow-hidden">
+              <img src="https://www.figma.com/api/mcp/asset/15dbaec1-f788-4e76-9190-ee93df1c6416" alt="Logo" class="h-full w-auto object-contain" />
+            </div>
+            <h2 class="font-gloock text-[38px] leading-[1.1] text-white max-w-[500px]">Turning Passion into Access and Classics into Reality</h2>
+            <button class="card-btn bg-white text-[#151515] font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
           </div>
         </div>
-      </article>
+      </div>
 
-    </div><!-- /home-work-stack -->
+      <!-- Project 2 — ProMedicine -->
+      <div class="reveal reveal-delay-1 project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer">
+        <img
+          src="https://www.figma.com/api/mcp/asset/a6ff4e24-03c6-46dd-b248-281cc2d70061"
+          alt="ProMedicine"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
+        <div class="absolute inset-0 px-9 py-7 flex flex-col justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h2 class="font-gloock text-[38px] leading-[1.1] text-white">ProMedicine</h2>
+            <p class="font-dm font-light text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
+            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- More Work CTA -->
-    <a href="work.html" class="more-work-cta">
-      <span class="more-work-cta-text">More work</span>
-      <span class="more-work-arrow">→</span>
-    </a>
+      <!-- Project 3 — Lost & Found -->
+      <div class="reveal reveal-delay-2 project-card relative h-[602px] rounded-[18px] overflow-hidden cursor-pointer bg-surface border border-border">
+        <img
+          src="https://www.figma.com/api/mcp/asset/1a9a5a8c-baf8-4546-8356-d06bc3d1a3ad"
+          alt="Lost and Found"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/55 rounded-[18px]"></div>
+        <div class="absolute inset-0 px-9 py-7 flex flex-col justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Lost &amp; Found</span>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h2 class="font-gloock text-[38px] leading-[1.1] text-white">Lost and Found</h2>
+            <p class="font-dm font-light text-[14px] text-white/75">UI/UX design for a community-driven lost item platform.</p>
+            <button class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</button>
+          </div>
+        </div>
+      </div>
 
-  </section>
+      <!-- More Work CTA -->
+      <a href="#" class="reveal more-work-btn bg-accent border border-border rounded-[18px] flex items-center justify-between px-9 py-6 cursor-pointer group">
+        <span class="font-gloock text-[56px] leading-none tracking-[-0.01em] text-white">More work</span>
+        <div class="arrow-circle w-[64px] h-[64px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+    </section>
 
-  <!-- ─── ABOUT ─────────────────────────────────────── -->
-  <section class="home-about-section" id="sec-about">
-    <div class="home-about-copy">
-      <span class="eyebrow">About</span>
+    <!-- ─── ABOUT ──────────────────────────────────────────────────── -->
+    <section id="about" class="border-t border-border flex flex-col items-center gap-10 py-40">
+      <!-- Label -->
+      <p class="reveal font-dm font-medium text-[14px] text-muted tracking-[0.14em] uppercase">About</p>
 
-      <p>
-        Pei-Shan is a UI/UX designer based in Sydney. She focuses on bringing clarity to complex systems and turning them into intuitive product experiences.
-      </p>
-      <p>
-        Guided by storytelling and human insight, she transforms inspiration from people into intentional, well-crafted design. From the fashion industry in Taiwan to UI/UX in Sydney — resilience and curiosity define her approach.
-      </p>
-    </div>
+      <div class="reveal flex flex-col gap-6 items-center max-w-[751px]">
+        <p class="font-dm font-light text-[17px] leading-[1.7] text-subtle text-center">
+          Pei-Shan is a UI/UX designer based in Sydney. She focuses on bringing clarity to complex systems and turning them into intuitive product experiences.
+        </p>
+        <p class="font-dm font-light text-[17px] leading-[1.7] text-subtle text-center">
+          Guided by storytelling and human insight, she transforms inspiration from people into intentional, well-crafted design. From the fashion industry in Taiwan to UI/UX in Sydney — resilience and curiosity define her approach.
+        </p>
+      </div>
 
-    <div class="logo-row">
-      <span class="logo-pill">9</span>
-      <span class="logo-pill">10</span>
-      <span class="logo-pill">Sky News</span>
-      <span class="logo-pill">today</span>
-      <span class="logo-pill">9News</span>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── CONTACT ───────────────────────────────────── -->
-  <section class="home-contact-section" id="sec-contact">
-    <span class="eyebrow home-contact-eyebrow">Get in touch</span>
-    <h2 class="home-contact-title">
-      Let's work
-      <span class="red-italic">together</span>
-    </h2>
+    <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+    <section id="contact" class="pb-16">
+      <div class="reveal bg-[#222] rounded-[18px] px-9 py-10 flex flex-col gap-10 relative overflow-hidden noise">
+        <!-- Label -->
+        <p class="font-dm text-[14px] text-white/45 tracking-[0.126em] uppercase pl-2.5">Get in touch</p>
 
-    <div class="contact-pill-row">
-      <a href="Pei-shan's Resume.pdf" target="_blank" class="contact-pill">Resume</a>
-      <a href="https://www.linkedin.com/in/pei-shan-tsai-04206b16a/" target="_blank" class="contact-pill">LinkedIn</a>
-      <a href="mailto:peishantsai12321@gmail.com" class="contact-pill">E-mail</a>
-    </div>
-  </section>
+        <!-- Display heading -->
+        <div>
+          <p class="font-dm-serif text-[120px] leading-[0.92] tracking-[-0.025em] text-white">Let's work</p>
+          <p class="font-dm-serif text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
+        </div>
 
-</div><!-- /container -->
+        <!-- Links -->
+        <div class="flex items-center gap-4">
+          <a href="#" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">Resume</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">LinkedIn</a>
+          <a href="mailto:hello@peishan.design" class="contact-link border border-[#333] text-white font-dm font-medium text-[16px] px-5 py-3 rounded-full">Email</a>
+        </div>
+      </div>
+    </section>
 
-<!-- ─── FOOTER ────────────────────────────────────────── -->
-<footer class="site-footer">
-  <div class="footer">
-    <span class="footer-sig">Pei-shan, 2026</span>
-    <div class="footer-links">
-      <a target="_blank" href="https://www.linkedin.com/in/pei-shan-tsai-04206b16a/" class="footer-link">LinkedIn</a>
-      <a target="_blank" href="Pei-shan's Resume.pdf" class="footer-link">Resume</a>
-      <a href="mailto:peishantsai12321@gmail.com" class="footer-link">Email</a>
-    </div>
-  </div>
-</footer>
+  </main>
 
+  <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="max-w-[1440px] mx-auto px-9 border-t border-border flex items-center justify-between py-6 pb-10">
+    <p class="font-dm text-[12px] text-white/28">© 2026. All rights reserved.</p>
+    <p class="font-dm text-[12px] text-white/28">Made by Pei-shan</p>
+  </footer>
+
+  <script>
+    // ── Cursor tracking ──────────────────────────────────────────
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    });
+
+    // ── Intersection Observer for scroll reveals ─────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Hero animation trigger ───────────────────────────────────
+    // Remove anim-start so tailwind animations play
+    document.querySelectorAll('.anim-start').forEach(el => {
+      // already handled by CSS animation + opacity:0 start
+    });
+  </script>
 </body>
 </html>
