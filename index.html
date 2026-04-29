@@ -6,6 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pei-shan — UI/UX Designer</title>
   <link rel="stylesheet" href="css/home.css">
+  <style>
+    /* ── Hero two-column layout ── */
+    .hero-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 40px 0 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Override hero-sub max-width so it fills the column */
+    .hero-two-col .hero-sub {
+      max-width: 100%;
+    }
+
+    /* Portrait card */
+    .hero-right {
+      display: flex;
+      justify-content: flex-end;
+      opacity: 0;
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+    }
+
+    .hero-portrait-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1.5px solid var(--accent-muted);
+      background: var(--bg-surface);
+      box-shadow: 0 0 0 1px var(--accent-pale), var(--shadow-lg);
+    }
+
+    .hero-portrait-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        transparent 40%,
+        rgba(229, 9, 20, 0.08) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.04) brightness(0.92);
+    }
+
+    /* ── View all work link ── */
+    .work-view-all {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    /* ── Responsive: hero stacks below 720 px ── */
+    @media (max-width: 720px) {
+      .hero-two-col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 56px;
+      }
+
+      .hero-right {
+        justify-content: center;
+      }
+
+      .hero-portrait-card {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,7 +102,7 @@
       Pei-shan<span class="nav-logo-dot">·</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#sec-work">Work</a></li>
+      <li><a href="work.html">Work</a></li>
       <li><a href="#sec-about">About</a></li>
       <li><a href="#sec-contact">Contact</a></li>
     </ul>
@@ -26,22 +110,29 @@
   </nav>
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
-  <section class="hero">
-    <span class="badge">
-      <span class="badge-dot badge-dot-green"></span>
-      <span class="badge-text">Available for freelance · 2026</span>
-    </span>
-    <h1 class="hero-title">
-      Product design<br>
-      with editorial<br>
-      sensibility.
-    </h1>
-    <p class="hero-sub">
-      I'm Pei-Shan, a UI/UX designer based in Sydney, shaped by storytelling and human connection, turning inspiration from people into thoughtful, considered product experiences.
-    </p>
-    <div class="hero-ctas">
-      <a href="mailto:peishantsai12321@gmail.com" class="btn btn-primary">Get in touch</a>
-      <a href="#sec-work" class="btn btn-ghost">View work</a>
+  <section class="hero hero-two-col">
+    <div class="hero-left">
+      <span class="badge">
+        <span class="badge-dot badge-dot-green"></span>
+        <span class="badge-text">Available for freelance · 2026</span>
+      </span>
+      <h1 class="hero-title">
+        Product design<br>
+        with editorial<br>
+        sensibility.
+      </h1>
+      <p class="hero-sub">
+        I'm Pei-Shan, a UI/UX designer based in Sydney, shaped by storytelling and human connection, turning inspiration from people into thoughtful, considered product experiences.
+      </p>
+      <div class="hero-ctas">
+        <a href="mailto:peishantsai12321@gmail.com" class="btn btn-primary">Get in touch</a>
+        <a href="#sec-work" class="btn btn-ghost">View work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-portrait-card">
+        <img src="Image/peishan.png" alt="Pei-Shan" class="hero-portrait-img">
+      </div>
     </div>
   </section>
 
@@ -107,6 +198,11 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- View all work -->
+    <div class="work-view-all">
+      <a href="work.html" class="btn btn-ghost">View all work &rarr;</a>
     </div>
 
     <!-- Stats -->

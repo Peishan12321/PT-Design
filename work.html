@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Pei-shan</title>
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    /* ============================================================
+       WORK PAGE — page-specific styles
+       ============================================================ */
+
+    /* ── Page hero ── */
+    .work-page-hero {
+      padding: 48px 0 64px;
+    }
+
+    .work-page-hero .eyebrow {
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .work-page-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 72px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .work-page-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── Filter tabs ── */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--border-subtle);
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      border: 0.5px solid var(--border-default);
+      background: transparent;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: all var(--base) var(--ease);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--bg-elevated);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ── Project grid ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    /* ── Project card ── */
+    .project-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color var(--base) var(--ease),
+                  transform var(--base) var(--ease),
+                  box-shadow var(--base) var(--ease);
+    }
+
+    .project-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card img,
+    .project-card video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--slow) var(--ease);
+    }
+
+    .project-card:hover img,
+    .project-card:hover video {
+      transform: scale(1.04);
+    }
+
+    /* Overlay — hidden until hover */
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      opacity: 0;
+      transition: opacity var(--base) var(--ease);
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-category-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .project-cta {
+      align-self: flex-start;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      border: 0.5px solid rgba(255, 255, 255, 0.28);
+      border-radius: var(--radius-pill);
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: background var(--base);
+    }
+
+    .project-cta:hover {
+      background: rgba(255, 255, 255, 0.26);
+    }
+
+    /* Card hidden by filter */
+    .project-card[hidden] {
+      display: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .work-page-hero {
+        padding: 32px 0 48px;
+      }
+
+      .filter-bar {
+        margin-bottom: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-overlay {
+        /* Always slightly visible on touch — show dimmed overlay */
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.52);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="Image/logo 2.png" alt="" class="nav-mark">
+      Pei-shan<span class="nav-logo-dot">·</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="index.html#sec-about">About</a></li>
+      <li><a href="index.html#sec-contact">Contact</a></li>
+    </ul>
+    <a href="mailto:peishantsai12321@gmail.com" class="btn btn-ghost btn-sm">Get in touch</a>
+  </nav>
+
+  <!-- ─── PAGE HERO ─────────────────────────────────── -->
+  <section class="work-page-hero">
+    <p class="eyebrow">01 — Work</p>
+    <h1 class="work-page-title">Selected work.</h1>
+    <p class="work-page-sub">A collection of brand, product, and interaction design.</p>
+  </section>
+
+  <!-- ─── FILTER TABS ───────────────────────────────── -->
+  <div class="filter-bar" role="group" aria-label="Filter projects by category">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="brand">Brand</button>
+    <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+    <button class="filter-btn" data-filter="motion">Motion</button>
+  </div>
+
+  <!-- ─── PROJECT GRID ──────────────────────────────── -->
+  <div class="project-grid" id="project-grid">
+
+    <!-- 1 · Neon Road Event -->
+    <article class="project-card" data-category="brand">
+      <img src="Image/Work1.jpg" alt="Neon Road Event">
+      <div class="project-overlay">
+        <span class="project-category-tag">Brand</span>
+        <h2 class="project-name">Neon Road Event</h2>
+        <p class="project-desc">Brand identity for an immersive music experience.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+    <!-- 2 · Lost & Found -->
+    <article class="project-card" data-category="ui-ux">
+      <video src="Video/shan.mp4" autoplay muted loop playsinline></video>
+      <div class="project-overlay">
+        <span class="project-category-tag">UI/UX</span>
+        <h2 class="project-name">Lost &amp; Found</h2>
+        <p class="project-desc">Community platform for lost items.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+    <!-- 3 · Rouge's Rhapsody -->
+    <article class="project-card" data-category="ui-ux">
+      <img src="Image/Game.png" alt="Rouge's Rhapsody">
+      <div class="project-overlay">
+        <span class="project-category-tag">UI/UX</span>
+        <h2 class="project-name">Rouge's Rhapsody</h2>
+        <p class="project-desc">Game UI design and interactive narrative.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+    <!-- 4 · Gadget Gang HK -->
+    <article class="project-card" data-category="brand">
+      <video src="Video/Gadget Gang HK.mp4" autoplay muted loop playsinline></video>
+      <div class="project-overlay">
+        <span class="project-category-tag">Brand</span>
+        <h2 class="project-name">Gadget Gang HK</h2>
+        <p class="project-desc">E-commerce brand identity and product photography direction.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+    <!-- 5 · Journey+ -->
+    <article class="project-card" data-category="ui-ux">
+      <video src="Video/Journey plus.mp4" autoplay muted loop playsinline></video>
+      <div class="project-overlay">
+        <span class="project-category-tag">UI/UX</span>
+        <h2 class="project-name">Journey+</h2>
+        <p class="project-desc">Travel companion app UX design.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+    <!-- 6 · 3D Motion -->
+    <article class="project-card" data-category="motion">
+      <video src="Video/3D Animation   Final Video.mp4" autoplay muted loop playsinline></video>
+      <div class="project-overlay">
+        <span class="project-category-tag">Motion</span>
+        <h2 class="project-name">3D Motion</h2>
+        <p class="project-desc">3D animation and motion design exploration.</p>
+        <button class="project-cta">View case study &rarr;</button>
+      </div>
+    </article>
+
+  </div><!-- /project-grid -->
+
+</div><!-- /container -->
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer">
+    <span class="footer-sig">Pei-shan, 2026</span>
+    <div class="footer-links">
+      <a target="_blank" href="https://www.linkedin.com/in/pei-shan-tsai-04206b16a/" class="footer-link">LinkedIn</a>
+      <a target="_blank" href="Pei-shan's Resume.pdf" class="footer-link">Resume</a>
+      <a href="mailto:peishantsai12321@gmail.com" class="footer-link">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Filter logic ──────────────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('#project-grid .project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.removeAttribute('hidden');
+        } else {
+          card.setAttribute('hidden', '');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
