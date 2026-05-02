@@ -64,10 +64,10 @@
     .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
 
     /* Card hover */
-    .project-card { transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .project-card:hover { transform: scale(1.005); }
     .project-card:hover .card-btn { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
-    .card-btn { transition: background 0.25s ease; }
+    .card-btn { transition: background 0.25s ease, border-color 0.25s ease; }
+    .card-media { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .project-card:hover .card-media { transform: scale(1.04); }
 
     /* More work hover */
     .more-work-btn:hover .arrow-circle { transform: translateX(6px); background: #fff; }
@@ -243,7 +243,7 @@
       <a href="classics.html" class="reveal project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
         <video
           autoplay muted loop playsinline
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          class="card-media absolute inset-0 w-full h-full object-cover pointer-events-none"
         >
           <source src="new_home_hero_video.webm" type="video/webm" />
         </video>
@@ -270,7 +270,7 @@
         <img
           src="work-promedicine-v2.png"
           alt="ProMedicine"
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          class="card-media absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
@@ -295,7 +295,7 @@
         <img
           src="work-sop.jpg"
           alt="School of Property"
-          class="absolute w-[106%] h-[170%] max-w-none object-cover pointer-events-none top-[-35%] left-0"
+          class="card-media absolute w-[106%] h-[170%] max-w-none object-cover pointer-events-none top-[-35%] left-0"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
