@@ -66,7 +66,7 @@
     /* Card hover */
     .project-card { transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .project-card:hover { transform: scale(1.005); }
-    .project-card:hover .card-btn { background: rgba(255,255,255,0.25); }
+    .project-card:hover .card-btn { background: rgba(255,255,255,0.82); }
     .card-btn { transition: background 0.25s ease; }
 
     /* More work hover */
@@ -153,7 +153,7 @@
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2.5 group">
         <div class="w-[22px] h-[22px] rounded-full overflow-hidden shrink-0 ring-1 ring-white/10">
-          <img src="https://www.figma.com/api/mcp/asset/e29ae770-d7aa-4390-a26a-5f134372478c" alt="Pei-shan" class="w-full h-full object-cover" />
+          <img src="Image/pei-avatar.png" alt="Pei-shan" class="w-full h-full object-cover" />
         </div>
         <span class="font-gloock text-[18px] md:text-[20px] leading-none text-white">Pei-shan</span>
       </a>
@@ -194,7 +194,7 @@
       <!-- Left — text -->
       <div class="flex flex-col gap-5 md:gap-6 md:max-w-[605px] md:shrink-0">
         <!-- Status badge -->
-        <div class="anim-start animate-fade-up inline-flex items-center gap-2 border border-border rounded-full px-3 py-1.5 w-fit">
+        <div class="anim-start animate-fade-up inline-flex items-center gap-2 border border-[#333] rounded-full px-3 py-1.5 w-fit">
           <span class="pulse-dot w-1.5 h-1.5 rounded-sm bg-green-500 shrink-0"></span>
           <span class="font-dm font-light text-[11px] text-subtle tracking-[0.03em]">Based in Sydney</span>
         </div>
@@ -219,7 +219,7 @@
       <!-- Right — portrait -->
       <div class="anim-start animate-slide-in-right relative w-full md:flex-1 md:max-w-[716px] h-[320px] sm:h-[420px] md:h-[545px] rounded-2xl overflow-hidden shrink-0">
         <img
-          src="https://www.figma.com/api/mcp/asset/01aa5f39-d806-4857-a43a-df287a9eb63f"
+          src="Image/peishan.png"
           alt="Pei-shan"
           class="absolute w-[152%] h-[106%] max-w-none object-cover top-[-3%] left-[-14%]"
         />
@@ -239,18 +239,20 @@
         >
           <source src="new_home_hero_video.webm" type="video/webm" />
         </video>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:p-9 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
             <span class="font-dm font-semibold text-[11px] md:text-[12px] text-white/90 tracking-[0.22em] uppercase">Classics for a cause</span>
           </div>
-          <div class="flex flex-col gap-3 md:gap-6">
-            <div style="width:80px;height:40px;">
-              <img src="LOGO.png" alt="Classics Logo" class="w-full h-full object-contain" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));" />
+          <div class="flex flex-col gap-6 md:gap-9">
+            <div class="flex flex-col gap-3 md:gap-6">
+              <div style="width:80px;height:40px;">
+                <img src="LOGO.png" alt="Classics Logo" class="w-full h-full object-contain" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));" />
+              </div>
+              <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">Turning Passion into Access and Classics into Reality</h2>
             </div>
-            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">Turning Passion into Access and Classics into Reality</h2>
-            <span class="card-btn bg-white text-[#151515] font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</span>
+            <span class="card-btn bg-white text-[#151515] font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit">View case study</span>
           </div>
         </div>
       </a>
@@ -258,41 +260,47 @@
       <!-- Project 2 — ProMedicine -->
       <a href="#" class="reveal reveal-delay-1 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
         <img
-          src="https://www.figma.com/api/mcp/asset/a6ff4e24-03c6-46dd-b248-281cc2d70061"
+          src="work-promedicine.jpg"
           alt="ProMedicine"
           class="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
             <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
           </div>
-          <div class="flex flex-col gap-2 md:gap-4">
-            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white">ProMedicine</h2>
-            <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
-            <span class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</span>
+          <div class="flex flex-col gap-6 md:gap-9">
+            <div class="flex flex-col gap-3 md:gap-6">
+              <div class="font-dm-serif italic text-white text-[22px] md:text-[28px] leading-none" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));">ProMedicine</div>
+              <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">Transforming Healthcare Access into Real-Time Connection</h2>
+            </div>
+            <span class="card-btn bg-white text-[#151515] font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit">View case study</span>
           </div>
         </div>
       </a>
 
-      <!-- Project 3 — Lost & Found -->
-      <a href="#" class="reveal reveal-delay-2 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden bg-surface border border-border">
+      <!-- Project 3 — School of Property -->
+      <a href="#" class="reveal reveal-delay-2 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
         <img
-          src="https://www.figma.com/api/mcp/asset/1a9a5a8c-baf8-4546-8356-d06bc3d1a3ad"
-          alt="Lost and Found"
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          src="work-sop.jpg"
+          alt="School of Property"
+          class="absolute w-[106%] h-[170%] max-w-none object-cover pointer-events-none top-[-35%] left-0"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent via-[35%] to-black/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
-            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Lost &amp; Found</span>
+            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">School of Property</span>
           </div>
-          <div class="flex flex-col gap-2 md:gap-4">
-            <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white">Lost and Found</h2>
-            <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a community-driven lost item platform.</p>
-            <span class="card-btn bg-white/15 border border-white/30 text-white font-dm font-medium text-[11px] md:text-[12px] rounded-full px-3.5 md:px-4 py-1.5 md:py-2 w-fit">View case study</span>
+          <div class="flex flex-col gap-6 md:gap-9">
+            <div class="flex flex-col gap-3 md:gap-6">
+              <div style="width:56px;height:44px;">
+                <img src="logo-sop.png" alt="School of Property Logo" class="w-full h-full object-contain" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));" />
+              </div>
+              <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">A Site Worth the Brand Behind It</h2>
+            </div>
+            <span class="card-btn bg-white text-[#151515] font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit">View case study</span>
           </div>
         </div>
       </a>
@@ -300,7 +308,7 @@
       <!-- More Work CTA -->
       <a href="#" class="reveal more-work-btn bg-accent rounded-[14px] md:rounded-[18px] flex items-center justify-between px-5 md:px-9 py-5 md:py-6 cursor-pointer group">
         <span class="font-gloock text-[36px] md:text-[56px] leading-none tracking-[-0.01em] text-white">More work</span>
-        <div class="arrow-circle w-[44px] h-[44px] md:w-[64px] md:h-[64px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0">
+        <div class="arrow-circle w-[44px] h-[44px] md:w-[100px] md:h-[100px] rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white md:w-6 md:h-6">
             <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -309,16 +317,26 @@
     </section>
 
     <!-- ─── ABOUT ──────────────────────────────────────────────────── -->
-    <section id="about" class="border-t border-border flex flex-col items-center gap-8 md:gap-10 py-20 md:py-40">
+    <section id="about" class="border-t border-border flex flex-col items-center gap-6 py-20">
       <p class="reveal font-dm font-medium text-[13px] md:text-[14px] text-muted tracking-[0.14em] uppercase">About</p>
 
-      <div class="reveal flex flex-col gap-5 md:gap-6 items-center max-w-[751px] px-1">
+      <div class="reveal flex flex-col gap-4 items-center max-w-[751px] px-1">
         <p class="font-dm font-light text-[15px] md:text-[17px] leading-[1.7] text-subtle text-center">
           Pei-Shan is a UI/UX designer based in Sydney. She focuses on bringing clarity to complex systems and turning them into intuitive product experiences.
         </p>
         <p class="font-dm font-light text-[15px] md:text-[17px] leading-[1.7] text-subtle text-center">
           Guided by storytelling and human insight, she transforms inspiration from people into intentional, well-crafted design. From the fashion industry in Taiwan to UI/UX in Sydney — resilience and curiosity define her approach.
         </p>
+      </div>
+
+      <!-- Client logos -->
+      <div class="reveal flex flex-wrap items-center justify-center gap-5 md:gap-6 mt-2">
+        <img src="about-logo-dmsans.png" alt="DM Sans" class="h-5 md:h-7 object-contain opacity-70" />
+        <img src="LOGO.png" alt="Classics" class="h-8 md:h-10 object-contain opacity-70" />
+        <img src="about-logo-sop.png" alt="School of Property" class="h-9 md:h-11 object-contain opacity-70" />
+        <img src="about-logo-ke.png" alt="Kirsten Eliza" class="h-6 md:h-8 object-contain opacity-60" style="filter: invert(1);" />
+        <img src="about-logo-gg2.png" alt="GG2" class="h-8 md:h-10 object-contain opacity-70" />
+        <img src="about-logo-pm.png" alt="ProMedicine" class="h-7 md:h-9 object-contain opacity-60" style="filter: invert(1);" />
       </div>
     </section>
 
@@ -333,7 +351,7 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-3 md:gap-4">
-          <a href="#" class="btn contact-link">Resume</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="btn contact-link">Resume</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn contact-link">LinkedIn</a>
           <a href="mailto:hello@peishan.design" class="btn contact-link">Email</a>
         </div>
