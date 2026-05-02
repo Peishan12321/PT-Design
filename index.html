@@ -120,12 +120,7 @@
 
     .together-text { color: #e50914; }
 
-    /* Logo marquee */
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .logos-track { animation: marquee 24s linear infinite; }
-    .logos-track:hover { animation-play-state: paused; }
-
-    /* Active nav link */
+/* Active nav link */
     .nav-link.active { color: #fff; }
 
     /* Coming soon card — no hover scale, no pointer */
@@ -362,25 +357,6 @@
         </p>
       </div>
 
-      <!-- Client logos — infinite scroll -->
-      <div class="reveal w-full overflow-hidden mt-2" style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
-        <div class="logos-track flex items-center gap-10 md:gap-16 w-max">
-          <!-- set 1 -->
-          <img src="logo-1.png" alt="Logo" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-2.png" alt="Gadget Gruz" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-3.png" alt="R Kings" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-4.png" alt="Logo" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-5.png" alt="School of Property" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-6.png" alt="Classics" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <!-- set 2 (duplicate for seamless loop) -->
-          <img src="logo-1.png" alt="Logo" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-2.png" alt="Gadget Gruz" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-3.png" alt="R Kings" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-4.png" alt="Logo" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-5.png" alt="School of Property" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-          <img src="logo-6.png" alt="Classics" class="h-8 md:h-10 object-contain opacity-80 shrink-0" />
-        </div>
-      </div>
     </section>
 
     <!-- ─── CONTACT ───────────────────────────────────────────────── -->
