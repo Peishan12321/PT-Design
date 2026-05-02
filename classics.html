@@ -50,6 +50,30 @@
     .contact-link { transition: background 0.25s ease, border-color 0.25s ease; }
     .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
+    /* CTA Button */
+    .cta-button {
+      background-color: #E50914;
+      color: #fff;
+      width: 8.5em;
+      height: 2.9em;
+      border: #E50914 0.2em solid;
+      border-radius: 20px;
+      text-align: right;
+      transition: all 0.6s ease;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      position: relative;
+      font-family: "DM Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .cta-button:hover { background-color: transparent; }
+    .cta-button svg { width: 1.6em; margin: 0 0.8em 0 0; position: absolute; left: 0; transition: all 0.6s ease; }
+    .cta-button:hover svg { transform: translateX(5px); }
+    .cta-button .text { margin: 0 1.5em; }
+
     /* Noise overlay */
     .noise::after {
       content: ''; position: absolute; inset: 0;
@@ -84,8 +108,11 @@
         <a href="index.html#about"   class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
         <a href="index.html#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
       </div>
-      <a href="index.html#contact" class="hidden md:block bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
-        Get in touch
+      <a href="index.html#contact" class="cta-button hidden md:flex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+        <span class="text">Get in touch</span>
       </a>
       <a href="index.html" class="md:hidden font-dm text-[14px] text-muted hover:text-white transition-colors">← Back</a>
     </nav>
@@ -100,6 +127,12 @@
         Turning Passion into Access and Classics into Reality
       </h1>
       <p class="font-dm font-light text-[18px] md:text-[24px] leading-relaxed text-subtle">Classics for a cause</p>
+      <a href="index.html#contact" class="cta-button mt-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+        <span class="text">Get in touch</span>
+      </a>
     </div>
 
     <!-- ─── HERO VIDEO ─────────────────────────────────────────── -->
