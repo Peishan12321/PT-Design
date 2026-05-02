@@ -47,32 +47,46 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     .together-text { color: #e50914; }
-    .contact-link { transition: background 0.25s ease, border-color 0.25s ease; }
-    .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    /* Shared button base */
+    .btn {
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 2.9em;
+      border-radius: 20px;
+      border-width: 0.13em;
+      border-style: solid;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5em;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.6s ease;
+      position: relative;
+      cursor: pointer;
+    }
 
-    /* CTA Button */
+    /* Red filled (nav + hero) */
     .cta-button {
       background-color: #E50914;
       color: #fff;
+      border-color: #E50914;
       width: 8.5em;
-      height: 2.9em;
-      border: #E50914 0.2em solid;
-      border-radius: 20px;
       text-align: right;
-      transition: all 0.6s ease;
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      position: relative;
-      font-family: "DM Sans", sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      white-space: nowrap;
     }
     .cta-button:hover { background-color: transparent; }
-    .cta-button svg { width: 1.6em; margin: 0 0.8em 0 0; position: absolute; left: 0; transition: all 0.6s ease; }
+    .cta-button svg { width: 1.6em; position: absolute; left: 0.8em; transition: all 0.6s ease; }
     .cta-button:hover svg { transform: translateX(5px); }
-    .cta-button .text { margin: 0 1.5em; }
+    .cta-button .text { margin: 0 0 0 1.8em; }
+
+    /* Ghost outline (Resume, LinkedIn, Email, View case study) */
+    .contact-link {
+      color: #fff;
+      border-color: #333;
+      background: transparent;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
     /* Noise overlay */
     .noise::after {
@@ -108,11 +122,8 @@
         <a href="index.html#about"   class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
         <a href="index.html#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
       </div>
-      <a href="index.html#contact" class="cta-button hidden md:flex">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-        <span class="text">Get in touch</span>
+      <a href="index.html#contact" class="btn cta-button hidden md:flex">
+        Get in touch
       </a>
       <a href="index.html" class="md:hidden font-dm text-[14px] text-muted hover:text-white transition-colors">← Back</a>
     </nav>
@@ -127,11 +138,8 @@
         Turning Passion into Access and Classics into Reality
       </h1>
       <p class="font-dm font-light text-[18px] md:text-[24px] leading-relaxed text-subtle">Classics for a cause</p>
-      <a href="index.html#contact" class="cta-button mt-2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-        <span class="text">Get in touch</span>
+      <a href="index.html#contact" class="btn cta-button mt-2">
+        Get in touch
       </a>
     </div>
 
@@ -257,11 +265,11 @@
 
     <!-- ─── PHONE MOCKUPS ────────────────────────────────────────── -->
     <div class="reveal pb-2 md:pb-3">
-      <div class="grid grid-cols-2 gap-2 md:gap-3">
-        <div class="overflow-hidden">
+      <div class="grid grid-cols-2 gap-2 md:gap-3" style="height:600px;">
+        <div class="overflow-hidden h-full">
           <img src="Image/classics-phone-1.png" alt="Classics app on mobile" class="w-full h-full object-cover" />
         </div>
-        <div class="overflow-hidden">
+        <div class="overflow-hidden h-full">
           <img src="Image/classics-phone-2.png" alt="Classics app icon on iOS" class="w-full h-full object-cover" />
         </div>
       </div>
@@ -313,7 +321,7 @@
           <div class="flex flex-col gap-3">
             <h3 class="font-gloock text-[28px] md:text-[38px] leading-[1.1] text-white">ProMedicine</h3>
             <p class="font-dm font-light text-[13px] md:text-[14px] text-white/75">UI/UX design for a healthcare platform experience.</p>
-            <span class="bg-white/15 border border-white/30 text-white font-dm font-medium text-[12px] rounded-full px-4 py-2 w-fit">View case study</span>
+            <span class="btn contact-link">View case study</span>
           </div>
         </div>
       </a>
@@ -328,9 +336,9 @@
           <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
         </div>
         <div class="flex flex-wrap items-center gap-3 md:gap-4">
-          <a href="Pei-shan's Resume.pdf" target="_blank" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Resume</a>
-          <a href="https://www.linkedin.com/in/pei-shan-tan/" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">LinkedIn</a>
-          <a href="mailto:hello@peishandesign.com" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Email</a>
+          <a href="Pei-shan's Resume.pdf" target="_blank" class="btn contact-link">Resume</a>
+          <a href="https://www.linkedin.com/in/pei-shan-tan/" target="_blank" rel="noopener" class="btn contact-link">LinkedIn</a>
+          <a href="mailto:hello@peishandesign.com" class="btn contact-link">Email</a>
         </div>
       </div>
     </div>
