@@ -75,8 +75,29 @@
     .arrow-circle { transition: transform 0.3s ease, background 0.3s ease; }
     .arrow-circle svg { transition: color 0.3s ease; }
 
-    /* Contact link hover */
-    .contact-link { transition: background 0.25s ease, border-color 0.25s ease; }
+    /* Shared button base */
+    .btn {
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 2.9em;
+      border-radius: 20px;
+      border-width: 0.13em;
+      border-style: solid;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.5em;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.6s ease;
+      cursor: pointer;
+    }
+    /* Red filled */
+    .cta-button { background-color: #E50914; color: #fff; border-color: #E50914; }
+    .cta-button:hover { background-color: transparent; }
+    /* Ghost outline */
+    .contact-link { color: #fff; border-color: #333; background: transparent; transition: background 0.25s ease, border-color 0.25s ease; }
     .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
     /* Scroll reveal */
@@ -145,9 +166,7 @@
       </div>
 
       <!-- Desktop CTA -->
-      <a href="#contact" class="hidden md:block bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[11px] tracking-wide rounded-full px-4 py-2">
-        Get in touch
-      </a>
+      <a href="#contact" class="btn cta-button hidden md:flex">Get in touch</a>
 
       <!-- Mobile hamburger -->
       <button id="menuBtn" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menu">
@@ -162,7 +181,7 @@
       <a href="#work"    onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">Work</a>
       <a href="#about"   onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">About</a>
       <a href="#contact" onclick="closeMenu()" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200 py-1">Contact</a>
-      <a href="#contact" onclick="closeMenu()" class="bg-accent text-white font-dm font-medium text-[14px] rounded-full px-4 py-2.5 text-center mt-1">Get in touch</a>
+      <a href="#contact" onclick="closeMenu()" class="btn cta-button mt-1">Get in touch</a>
     </div>
   </header>
 
@@ -192,12 +211,8 @@
 
         <!-- CTAs -->
         <div class="anim-start animate-fade-up-delay-3 flex items-center gap-3 md:gap-4">
-          <a href="#contact" class="bg-accent hover:bg-red-600 transition-colors duration-200 text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">
-            Get in touch
-          </a>
-          <a href="#work" class="border border-border hover:border-white/30 transition-colors duration-200 text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">
-            View work
-          </a>
+          <a href="#contact" class="btn cta-button">Get in touch</a>
+          <a href="#work" class="btn contact-link">View work</a>
         </div>
       </div>
 
@@ -318,9 +333,9 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-3 md:gap-4">
-          <a href="#" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Resume</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">LinkedIn</a>
-          <a href="mailto:hello@peishan.design" class="contact-link border border-[#333] text-white font-dm font-medium text-[14px] md:text-[16px] px-4 md:px-5 py-2.5 md:py-3 rounded-full">Email</a>
+          <a href="#" class="btn contact-link">Resume</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn contact-link">LinkedIn</a>
+          <a href="mailto:hello@peishan.design" class="btn contact-link">Email</a>
         </div>
       </div>
     </section>
