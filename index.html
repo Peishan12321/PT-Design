@@ -122,8 +122,25 @@
 
     /* Logo marquee */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .logos-track { animation: marquee 18s linear infinite; }
+    .logos-track { animation: marquee 24s linear infinite; }
     .logos-track:hover { animation-play-state: paused; }
+
+    /* Active nav link */
+    .nav-link.active { color: #fff; }
+
+    /* Coming soon card — no hover scale, no pointer */
+    .coming-soon-card { cursor: default; }
+    .coming-soon-card:hover { transform: none !important; }
+    .coming-soon-card:hover .card-btn { background: transparent !important; border-color: #333 !important; }
+    .coming-soon-badge {
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.65);
+      padding: 4px 10px; border-radius: 20px;
+    }
 
     /* Custom cursor — desktop only */
     @media (pointer: fine) {
@@ -165,9 +182,9 @@
 
       <!-- Desktop nav links -->
       <div class="hidden md:flex items-center gap-6">
-        <a href="#work" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Work</a>
-        <a href="#about" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
-        <a href="#contact" class="font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
+        <a href="#work" data-nav="work" class="nav-link font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Work</a>
+        <a href="#about" data-nav="about" class="nav-link font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">About</a>
+        <a href="#contact" data-nav="contact" class="nav-link font-dm text-[16px] text-muted hover:text-white transition-colors duration-200">Contact</a>
       </div>
 
       <!-- Desktop CTA -->
@@ -263,7 +280,7 @@
       </a>
 
       <!-- Project 2 — ProMedicine -->
-      <a href="#" class="reveal reveal-delay-1 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
+      <div class="reveal reveal-delay-1 project-card coming-soon-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
         <img
           src="work-promedicine-v2.png"
           alt="ProMedicine"
@@ -271,9 +288,12 @@
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
-            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+              <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">Promedicine</span>
+            </div>
+            <span class="coming-soon-badge">Coming soon</span>
           </div>
           <div class="flex flex-col gap-6 md:gap-9">
             <div class="flex flex-col gap-3 md:gap-6">
@@ -282,13 +302,13 @@
               </div>
               <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">Transforming Healthcare Access into Real-Time Connection</h2>
             </div>
-            <span class="card-btn border border-[#333] text-white font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit bg-transparent transition-all duration-300">View case study</span>
+            <span class="card-btn border border-[#333] text-white/50 font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit bg-transparent">View case study</span>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- Project 3 — School of Property -->
-      <a href="#" class="reveal reveal-delay-2 project-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
+      <div class="reveal reveal-delay-2 project-card coming-soon-card relative h-[380px] md:h-[602px] rounded-[14px] md:rounded-[18px] overflow-hidden">
         <img
           src="work-sop.jpg"
           alt="School of Property"
@@ -296,9 +316,12 @@
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 via-[54%] to-black"></div>
         <div class="absolute inset-0 p-5 md:px-9 md:py-7 flex flex-col justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
-            <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">School of Property</span>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-accent font-dm font-semibold text-[9px] tracking-[0.22em]">●</span>
+              <span class="font-dm font-semibold text-[11px] text-white/90 tracking-[0.22em] uppercase">School of Property</span>
+            </div>
+            <span class="coming-soon-badge">Coming soon</span>
           </div>
           <div class="flex flex-col gap-6 md:gap-9">
             <div class="flex flex-col gap-3 md:gap-6">
@@ -307,10 +330,10 @@
               </div>
               <h2 class="font-gloock text-[24px] sm:text-[30px] md:text-[38px] leading-[1.1] text-white max-w-[500px]">A Site Worth the Brand Behind It</h2>
             </div>
-            <span class="card-btn border border-[#333] text-white font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit bg-transparent transition-all duration-300">View case study</span>
+            <span class="card-btn border border-[#333] text-white/50 font-dm font-medium text-[13px] md:text-[16px] rounded-full px-4 md:px-[18px] py-2 md:py-3 w-fit bg-transparent">View case study</span>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- More Work CTA -->
       <a href="#" class="reveal more-work-btn bg-accent rounded-[14px] md:rounded-[18px] flex items-center justify-between px-5 md:px-9 py-5 md:py-6 cursor-pointer group">
@@ -333,6 +356,9 @@
         </p>
         <p class="font-dm font-light text-[15px] md:text-[17px] leading-[1.7] text-subtle text-center">
           Guided by storytelling and human insight, she transforms inspiration from people into intentional, well-crafted design. From the fashion industry in Taiwan to UI/UX in Sydney — resilience and curiosity define her approach.
+        </p>
+        <p class="font-dm text-[12px] md:text-[13px] text-white/30 tracking-[0.12em] uppercase text-center pt-1">
+          Figma &nbsp;·&nbsp; Research &nbsp;·&nbsp; Prototyping &nbsp;·&nbsp; Interaction Design
         </p>
       </div>
 
@@ -367,10 +393,16 @@
           <p class="font-dm-serif text-[52px] sm:text-[72px] md:text-[120px] leading-[0.92] tracking-[-0.025em] together-text">together</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3 md:gap-4">
-          <a href="resume.pdf" target="_blank" rel="noopener" class="btn contact-link">Resume</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn contact-link">LinkedIn</a>
-          <a href="mailto:hello@peishan.design" class="btn contact-link">Email</a>
+        <div class="flex flex-col gap-3">
+          <p class="font-dm text-[13px] text-white/35 flex items-center gap-2">
+            <span class="pulse-dot inline-block w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+            Usually responds within 24 hours
+          </p>
+          <div class="flex flex-wrap items-center gap-3 md:gap-4">
+            <a href="resume.pdf" target="_blank" rel="noopener" class="btn contact-link">Resume</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn contact-link">LinkedIn</a>
+            <a href="mailto:hello@peishan.design" class="btn contact-link">Email</a>
+          </div>
         </div>
       </div>
     </section>
@@ -430,6 +462,20 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Active nav state ─────────────────────────────────────────
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = ['work', 'about', 'contact'].map(id => document.getElementById(id));
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[data-nav="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => s && navObserver.observe(s));
   </script>
 </body>
 </html>
